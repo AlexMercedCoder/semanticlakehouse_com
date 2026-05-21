@@ -37,7 +37,7 @@ Dope.security establishes a celestial-tech aesthetic: dark, ethereal backgrounds
 - **Role:** Monospaced text for specific section headings, code examples, and technical annotations. The wide letter-spacing gives a distinct, almost coded aesthetic.
 
 ### GrandSlang — Hero headlines and large display marketing text. The lighter weights and tight tracking create a distinguished, authoritative presence that feels modern yet substantial. · `--font-grandslang`
-- **Substitute:** Playfair Display, serif
+- **Substitute:** Outfit, sans-serif
 - **Weights:** 300, 400
 - **Sizes:** 32px, 50px, 64px, 88px, 146px
 - **Line height:** 0.80, 1.20, 1.25, 1.50
