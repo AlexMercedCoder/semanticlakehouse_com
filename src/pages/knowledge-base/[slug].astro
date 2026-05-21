@@ -29,9 +29,15 @@ const { Content } = await render(entry);
       <div class="related-terms">
         <h3>Related Terms</h3>
         <ul>
-          {entry.data.related.map((rel: string) => (
-            <li><a href={`/knowledge-base/${rel}`}>{rel}</a></li>
-          ))}
+          {entry.data.related.map((rel: string) => {
+            const displayTitle = rel
+              .split('-')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ');
+            return (
+              <li><a href={`/knowledge-base/${rel}`}>{displayTitle}</a></li>
+            );
+          })}
         </ul>
       </div>
     )}

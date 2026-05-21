@@ -1,18 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-// This will eventually list all 100 terms from the content collection
-const terms = [
-  { slug: "semantic-layer", title: "Semantic Layer" },
-  { slug: "data-lakehouse", title: "Data Lakehouse" },
-  { slug: "apache-iceberg", title: "Apache Iceberg" },
-  { slug: "agentic-analytics", title: "Agentic Analytics" }
-];
+const terms = await getCollection('terms');
+// Sort terms alphabetically by title
+terms.sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
 <Layout 
   title="Knowledge Base | SemanticLakehouse.com" 
-  description="Comprehensive dictionary of 100 data engineering and analytics terms."
+  description="Comprehensive dictionary of data engineering and analytics terms."
 >
   <div class="container page-header">
     <h1>Knowledge Base</h1>
@@ -22,8 +19,8 @@ const terms = [
   <div class="container">
     <div class="terms-grid">
       {terms.map(term => (
-        <a href={`/knowledge-base/${term.slug}`} class="card term-card">
-          <h3>{term.title}</h3>
+        <a href={`/knowledge-base/${term.id}`} class="card term-card">
+          <h3>{term.data.title}</h3>
         </a>
       ))}
     </div>

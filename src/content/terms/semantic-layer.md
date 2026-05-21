@@ -1,15 +1,18 @@
 ---
 title: "Semantic Layer"
-description: "A business representation of corporate data that helps end users access data autonomously."
-related: ["data-lakehouse", "agentic-analytics"]
+description: "A business representation of corporate data that maps complex underlying structures to standardized business concepts."
+related: ["metrics-store", "data-lakehouse", "agentic-analytics"]
 ---
 
-A **Semantic Layer** acts as an intermediary between complex backend data infrastructure and end-users (or AI agents) who need to access that data. It translates technical data structures (like tables and columns) into familiar business terms (like revenue, customer, or product).
+**Semantic Layer** is an abstraction layer that maps complex physical data structures to clear, standardized business terms. It allows users and applications to query data without needing to understand underlying table joins, file formats, or database locations.
 
-## Why is it important?
+## How it Works
 
-1. **Consistency**: Ensures everyone uses the same definition for KPIs.
-2. **Self-Service**: Empowers business users to build their own reports without writing SQL.
-3. **Agentic Analytics**: Provides the necessary context and definitions for AI agents to accurately query and interpret data.
+The semantic layer translates logical business definitions into physical execution plans. When a query is initiated, the semantic layer compiles the request into SQL, maps logical columns to their physical counterparts, and applies governed access controls before fetching results.
 
-Dremio's approach seamlessly integrates the semantic layer with the query engine and data catalog, providing a unified platform that accelerates time-to-value.
+- **Unified Interface**: Serves as the single source of truth for queries, ensuring consistent definitions for business concepts.
+- **Data Virtualization**: Connects multiple data sources dynamically, resolving queries without physical replication.
+
+## Lakehouse & Agentic Relevance
+
+In a data lakehouse architecture, the semantic layer prevents data silos by providing a single governed entryway to physical tables like Apache Iceberg. For AI agents, the semantic layer provides structured context, reducing SQL generation hallucinations by replacing raw table schemas with well-defined metrics, dimensions, and relationships. Dremio provides a native semantic layer using virtual datasets, allowing teams to define abstractions directly over lakehouse sources and query them at sub-second speeds.
