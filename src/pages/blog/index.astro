@@ -1,13 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Parser from 'rss-parser';
 
-// In a real implementation, we would fetch from the datalakehousehub.com API or RSS feed.
-// For now, we simulate this with a static fetch or placeholder data.
-const blogs = [
-  { title: "Understanding Apache Iceberg", url: "https://datalakehousehub.com/understanding-iceberg", date: "2026-05-10" },
-  { title: "The Role of the Semantic Layer in AI", url: "https://datalakehousehub.com/semantic-layer-ai", date: "2026-05-05" },
-  { title: "Query Federation Best Practices", url: "https://datalakehousehub.com/query-federation", date: "2026-04-20" }
-];
+let blogs: { title: string, url: string, date: string }[] = [];
+
+try {
+  const parser = new Parser();
+  const feed = await parser.parseURL('https://datalakehousehub.com/rss.xml');
+  blogs = feed.items.map(item => ({
+    title: item.title || 'Untitled',
+    url: item.link || '#',
+    date: item.pubDate ? new Date(item.pubDate).toLocaleDateString() : 'Recent'
+  }));
+} catch (e) {
+  console.error("Failed to fetch RSS feed", e);
+}
 ---
 
 <Layout 
@@ -24,34 +31,83 @@ const blogs = [
       <input type="text" id="blogSearch" placeholder="Search articles..." class="search-input" />
     </div>
 
-    <div class="blog-list" id="blogList">
-      {blogs.map(blog => (
-        <a href={blog.url} target="_blank" rel="noopener noreferrer" class="card blog-card">
-          <h3>{blog.title}</h3>
-          <span class="date">{blog.date}</span>
-        </a>
-      ))}
+    <div class="blog-grid" id="blogGrid">
+      <!-- Populated by JS -->
+    </div>
+    
+    <div class="pagination" id="paginationControls">
+      <!-- Populated by JS -->
     </div>
   </div>
 </Layout>
 
-<script>
-  // Simple client-side search filtering
+<script is:inline define:vars={{ blogs }}>
+  const itemsPerPage = 12; // 3 or 4 per row, 3 rows max (4x3=12)
+  let currentPage = 1;
+  let filteredBlogs = [...blogs];
+
   const searchInput = document.getElementById('blogSearch');
-  const blogList = document.getElementById('blogList');
-  const cards = blogList?.querySelectorAll('.blog-card');
+  const blogGrid = document.getElementById('blogGrid');
+  const paginationControls = document.getElementById('paginationControls');
+
+  function renderBlogs() {
+    if (!blogGrid) return;
+    blogGrid.innerHTML = '';
+
+    if (filteredBlogs.length === 0) {
+      blogGrid.innerHTML = '<div class="card" style="grid-column: 1 / -1; text-align: center;"><p>No blogs found.</p></div>';
+      return;
+    }
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const currentBlogs = filteredBlogs.slice(start, end);
+
+    currentBlogs.forEach(blog => {
+      const a = document.createElement('a');
+      a.href = blog.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.className = "card blog-card";
+      a.innerHTML = `
+        <h3>${blog.title}</h3>
+        <span class="date">${blog.date}</span>
+      `;
+      blogGrid.appendChild(a);
+    });
+
+    renderPagination();
+  }
+
+  function renderPagination() {
+    if (!paginationControls) return;
+    paginationControls.innerHTML = '';
+    const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage);
+
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.innerText = i;
+      btn.className = i === currentPage ? 'page-btn active' : 'page-btn';
+      btn.addEventListener('click', () => {
+        currentPage = i;
+        renderBlogs();
+        window.scrollTo(0, 0);
+      });
+      paginationControls.appendChild(btn);
+    }
+  }
 
   searchInput?.addEventListener('input', (e) => {
-    const term = (e.target as HTMLInputElement).value.toLowerCase();
-    cards?.forEach(card => {
-      const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
-      if (title.includes(term)) {
-        (card as HTMLElement).style.display = 'block';
-      } else {
-        (card as HTMLElement).style.display = 'none';
-      }
-    });
+    const term = e.target.value.toLowerCase();
+    filteredBlogs = blogs.filter(blog => blog.title.toLowerCase().includes(term));
+    currentPage = 1; // Reset to first page
+    renderBlogs();
   });
+
+  // Initial render
+  renderBlogs();
 </script>
 
 <style>
@@ -68,32 +124,62 @@ const blogs = [
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
     border-radius: 30px;
-    border: 1px solid var(--text-light);
-    background-color: var(--card-bg);
-    color: var(--text-color);
+    border: 1px solid var(--color-slate-hint);
+    background-color: var(--surface-frosted-pane);
+    color: var(--color-cloud-whisper);
     outline: none;
     transition: border-color 0.3s ease;
   }
   .search-input:focus {
-    border-color: var(--secondary);
+    border-color: var(--color-deep-violet);
   }
-  .blog-list {
+  .blog-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   .blog-card {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    padding: 1.5rem;
+    height: 100%;
   }
   .blog-card h3 {
-    margin: 0;
+    margin: 0 0 1rem 0;
     font-size: 1.25rem;
+    line-height: 1.4;
   }
   .date {
-    color: var(--text-light);
+    color: var(--color-slate-hint);
     font-size: 0.9rem;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+  .page-btn {
+    background: transparent;
+    border: 1px solid var(--color-slate-hint);
+    color: var(--color-cloud-whisper);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-buttons);
+    cursor: pointer;
+    font-family: var(--font-whyte-inktrap);
+    transition: all 0.2s ease;
+  }
+  .page-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .page-btn.active {
+    background: var(--color-deep-violet);
+    color: #fff;
+    border-color: var(--color-deep-violet);
   }
 </style>

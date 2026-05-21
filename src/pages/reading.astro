@@ -1,20 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const books = [
-  {
-    title: "Agentic Analytics",
-    url: "https://books.alexmerced.com",
-    coverUrl: "https://books.alexmerced.com/covers/agentic-analytics.jpg",
-    fallbackCover: "https://via.placeholder.com/300x450.png?text=Agentic+Analytics"
-  },
-  {
-    title: "Using Apache Iceberg with Python",
-    url: "https://books.alexmerced.com",
-    coverUrl: "https://books.alexmerced.com/covers/iceberg-python.jpg",
-    fallbackCover: "https://via.placeholder.com/300x450.png?text=Iceberg+with+Python"
-  }
-];
+import { books } from '../utils/data';
 ---
 
 <Layout 
@@ -23,17 +9,16 @@ const books = [
 >
   <div class="container page-header">
     <h1>Recommended Reading</h1>
-    <p>Explore authoritative books on Data and AI by Alex Merced.</p>
+    <p>Explore authoritative books on Data and AI by Alex Merced, including publications from O'Reilly and Manning.</p>
   </div>
 
   <div class="container books-grid">
-    {books.map(book => (
-      <a href={book.url} target="_blank" rel="noopener noreferrer" class="card book-card">
+    {books.filter(b => b.category === 'tech').map(book => (
+      <a href={book.amazon_url} target="_blank" rel="noopener noreferrer" class="card book-card">
         <div class="cover-wrapper">
           <img 
-            src={book.coverUrl} 
+            src={book.cover_image_url} 
             alt={`Cover of ${book.title}`} 
-            onerror={`this.onerror=null; this.src='${book.fallbackCover}';`}
             loading="lazy"
           />
         </div>
@@ -65,17 +50,14 @@ const books = [
   }
   .cover-wrapper {
     width: 100%;
-    aspect-ratio: 2 / 3;
-    background-color: var(--bg-color);
     border-radius: 8px;
-    overflow: hidden;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
   .cover-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
   }
   .book-card h3 {
     font-size: 1.2rem;
