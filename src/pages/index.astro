@@ -8,11 +8,19 @@ let latestBlogs: { title: string, url: string, date: string }[] = [];
 try {
   const parser = new Parser();
   const feed = await parser.parseURL('https://datalakehousehub.com/rss.xml');
-  latestBlogs = feed.items.slice(0, 3).map(item => ({
-    title: item.title || 'Untitled',
-    url: item.link || '#',
-    date: item.pubDate ? new Date(item.pubDate).toLocaleDateString() : 'Recent'
-  }));
+  latestBlogs = feed.items
+    .filter(item => {
+      const url = item.link || '';
+      return url.startsWith('https://datalakehousehub.com/blog/') && 
+             !url.endsWith('/blog/index/') && 
+             !url.endsWith('/blog/index');
+    })
+    .slice(0, 3)
+    .map(item => ({
+      title: item.title || 'Untitled',
+      url: item.link || '#',
+      date: item.pubDate ? new Date(item.pubDate).toLocaleDateString() : 'Recent'
+    }));
 } catch (e) {
   console.error("Failed to fetch RSS feed", e);
 }
