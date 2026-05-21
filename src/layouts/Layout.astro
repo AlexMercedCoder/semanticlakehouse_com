@@ -1,0 +1,87 @@
+---
+import SEO from '../components/SEO.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEO title={title} description={description} />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="/" class="logo">SemanticLakehouse.com</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/reading">Reading</a></li>
+            <li><a href="/knowledge-base">Knowledge Base</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} SemanticLakehouse.com. Built with Astro.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .navbar {
+    background-color: var(--card-bg);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--primary);
+  }
+  [data-theme='dark'] .logo {
+    color: var(--secondary);
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  .nav-links a:hover {
+    color: var(--secondary);
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    background-color: var(--card-bg);
+    color: var(--text-light);
+  }
+</style>

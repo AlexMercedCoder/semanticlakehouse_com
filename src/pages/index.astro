@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="SemanticLakehouse.com | Data Lakehouses & Agentic Analytics" 
+  description="Learn about the Semantic Layer, Data Lakehouses, Query Federation, and how Dremio integrates engine, catalog, and semantic layer into a unified platform."
+>
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>The Future of Data is the <span class="highlight">Semantic Lakehouse</span></h1>
+      <p class="subtitle">Empowering Agentic Analytics through a unified Engine, Catalog, and Semantic Layer.</p>
+      <div class="cta-buttons">
+        <a href="#concepts" class="btn">Explore Concepts</a>
+        <a href="/knowledge-base" class="btn btn-outline">Knowledge Base</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="concepts" class="container concepts-grid">
+    <div class="card">
+      <h2>Semantic Layer</h2>
+      <p>A unified business representation of data, mapping complex underlying structures into familiar, governed metrics and dimensions. It ensures everyone—and every AI agent—speaks the same data language.</p>
+    </div>
+    
+    <div class="card">
+      <h2>Data Lakehouse</h2>
+      <p>Combining the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses, typically enabled by formats like Apache Iceberg.</p>
+    </div>
+
+    <div class="card">
+      <h2>Agentic Analytics</h2>
+      <p>The next frontier of AI, where autonomous agents not only answer questions but take actions and build workflows based on the governed context provided by a Semantic Layer.</p>
+    </div>
+
+    <div class="card">
+      <h2>Query Federation & Data Virtualization</h2>
+      <p>Access and query data where it lives without physically moving it. Virtualization provides a single access point across multiple heterogeneous sources.</p>
+    </div>
+  </section>
+
+  <section class="dremio-section container">
+    <div class="card dremio-card">
+      <h2>The Dremio Difference</h2>
+      <p>Dremio uniquely integrates the <strong>Engine</strong>, <strong>Catalog</strong>, and <strong>Semantic Layer</strong> into a single, cohesive platform. This unified approach eliminates silos, accelerates time-to-insight, and provides the perfect foundation for modern Lakehouses and Agentic AI workloads.</p>
+      <a href="https://www.dremio.com" target="_blank" rel="noopener noreferrer" class="btn">Discover Dremio</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding: 6rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-color) 100%);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .highlight {
+    color: var(--secondary);
+  }
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: #fff;
+  }
+  [data-theme='dark'] .btn-outline {
+    color: var(--secondary);
+    border-color: var(--secondary);
+  }
+  [data-theme='dark'] .btn-outline:hover {
+    background-color: var(--secondary);
+    color: var(--bg-color);
+  }
+  .concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: -3rem;
+    position: relative;
+    z-index: 10;
+  }
+  .dremio-section {
+    margin-top: 4rem;
+  }
+  .dremio-card {
+    text-align: center;
+    background: linear-gradient(to right, rgba(0, 209, 178, 0.1), rgba(248, 113, 113, 0.1));
+    border: 1px solid var(--secondary);
+  }
+</style>

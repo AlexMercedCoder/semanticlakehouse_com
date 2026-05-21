@@ -1,0 +1,9 @@
+# SemanticLakehouse.com
+
+SemanticLakehouse.com is an educational platform dedicated to Data Lakehouses, the Semantic Layer, Agentic Analytics, and Query Federation, with a focus on Dremio's unified engine-catalog-semantic layer approach.
+
+## Structure
+- / : Home page defining core concepts.
+- /blog : Directory of blogs aggregated from datalakehousehub.com.
+- /reading : Recommended books on Data and AI authored by Alex Merced.
+- /knowledge-base : A comprehensive dictionary of data engineering and analytics terms.

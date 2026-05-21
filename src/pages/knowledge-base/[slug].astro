@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const terms = await getCollection('terms');
+  return terms.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} | Knowledge Base`} description={entry.data.description}>
+  <article class="container article-container card">
+    <header class="article-header">
+      <h1>{entry.data.title}</h1>
+      <p class="description">{entry.data.description}</p>
+    </header>
+    
+    <div class="prose">
+      <Content />
+    </div>
+
+    {entry.data.related && entry.data.related.length > 0 && (
+      <div class="related-terms">
+        <h3>Related Terms</h3>
+        <ul>
+          {entry.data.related.map((rel: string) => (
+            <li><a href={`/knowledge-base/${rel}`}>{rel}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .article-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 3rem;
+  }
+  .article-header {
+    border-bottom: 1px solid var(--text-light);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .description {
+    font-size: 1.2rem;
+    color: var(--text-light);
+  }
+  .prose {
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+  .prose h2 {
+    margin-top: 2rem;
+  }
+  .related-terms {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+</style>

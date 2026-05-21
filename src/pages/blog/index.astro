@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// In a real implementation, we would fetch from the datalakehousehub.com API or RSS feed.
+// For now, we simulate this with a static fetch or placeholder data.
+const blogs = [
+  { title: "Understanding Apache Iceberg", url: "https://datalakehousehub.com/understanding-iceberg", date: "2026-05-10" },
+  { title: "The Role of the Semantic Layer in AI", url: "https://datalakehousehub.com/semantic-layer-ai", date: "2026-05-05" },
+  { title: "Query Federation Best Practices", url: "https://datalakehousehub.com/query-federation", date: "2026-04-20" }
+];
+---
+
+<Layout 
+  title="Blog Roll | SemanticLakehouse.com" 
+  description="Read the latest articles on Data Lakehouses and the Semantic Layer from DataLakehouseHub.com"
+>
+  <div class="container page-header">
+    <h1>Latest Articles</h1>
+    <p>Curated insights from DataLakehouseHub.com</p>
+  </div>
+
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="blogSearch" placeholder="Search articles..." class="search-input" />
+    </div>
+
+    <div class="blog-list" id="blogList">
+      {blogs.map(blog => (
+        <a href={blog.url} target="_blank" rel="noopener noreferrer" class="card blog-card">
+          <h3>{blog.title}</h3>
+          <span class="date">{blog.date}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Simple client-side search filtering
+  const searchInput = document.getElementById('blogSearch');
+  const blogList = document.getElementById('blogList');
+  const cards = blogList?.querySelectorAll('.blog-card');
+
+  searchInput?.addEventListener('input', (e) => {
+    const term = (e.target as HTMLInputElement).value.toLowerCase();
+    cards?.forEach(card => {
+      const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+      if (title.includes(term)) {
+        (card as HTMLElement).style.display = 'block';
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  .page-header {
+    text-align: center;
+    padding: 4rem 0 2rem;
+  }
+  .search-bar {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+  .search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    border: 1px solid var(--text-light);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  .search-input:focus {
+    border-color: var(--secondary);
+  }
+  .blog-list {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .blog-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .blog-card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+</style>

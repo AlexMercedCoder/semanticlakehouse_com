@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// This will eventually list all 100 terms from the content collection
+const terms = [
+  { slug: "semantic-layer", title: "Semantic Layer" },
+  { slug: "data-lakehouse", title: "Data Lakehouse" },
+  { slug: "apache-iceberg", title: "Apache Iceberg" },
+  { slug: "agentic-analytics", title: "Agentic Analytics" }
+];
+---
+
+<Layout 
+  title="Knowledge Base | SemanticLakehouse.com" 
+  description="Comprehensive dictionary of 100 data engineering and analytics terms."
+>
+  <div class="container page-header">
+    <h1>Knowledge Base</h1>
+    <p>Your dictionary for the modern data stack.</p>
+  </div>
+
+  <div class="container">
+    <div class="terms-grid">
+      {terms.map(term => (
+        <a href={`/knowledge-base/${term.slug}`} class="card term-card">
+          <h3>{term.title}</h3>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    text-align: center;
+    padding: 4rem 0 2rem;
+  }
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .term-card {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .term-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+</style>

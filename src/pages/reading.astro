@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const books = [
+  {
+    title: "Agentic Analytics",
+    url: "https://books.alexmerced.com",
+    coverUrl: "https://books.alexmerced.com/covers/agentic-analytics.jpg",
+    fallbackCover: "https://via.placeholder.com/300x450.png?text=Agentic+Analytics"
+  },
+  {
+    title: "Using Apache Iceberg with Python",
+    url: "https://books.alexmerced.com",
+    coverUrl: "https://books.alexmerced.com/covers/iceberg-python.jpg",
+    fallbackCover: "https://via.placeholder.com/300x450.png?text=Iceberg+with+Python"
+  }
+];
+---
+
+<Layout 
+  title="Reading List | SemanticLakehouse.com" 
+  description="A directory of Data and AI books authored by Alex Merced."
+>
+  <div class="container page-header">
+    <h1>Recommended Reading</h1>
+    <p>Explore authoritative books on Data and AI by Alex Merced.</p>
+  </div>
+
+  <div class="container books-grid">
+    {books.map(book => (
+      <a href={book.url} target="_blank" rel="noopener noreferrer" class="card book-card">
+        <div class="cover-wrapper">
+          <img 
+            src={book.coverUrl} 
+            alt={`Cover of ${book.title}`} 
+            onerror={`this.onerror=null; this.src='${book.fallbackCover}';`}
+            loading="lazy"
+          />
+        </div>
+        <h3>{book.title}</h3>
+        <span class="read-more">Learn More &rarr;</span>
+      </a>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    text-align: center;
+    padding: 4rem 0 2rem;
+  }
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+  .book-card {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cover-wrapper {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .cover-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .book-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+  .read-more {
+    color: var(--secondary);
+    font-weight: 600;
+  }
+</style>
