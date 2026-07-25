@@ -1,9 +1,25 @@
 # SemanticLakehouse.com
 
-SemanticLakehouse.com is an educational platform dedicated to Data Lakehouses, the Semantic Layer, Agentic Analytics, and Query Federation, with a focus on Dremio's unified engine-catalog-semantic layer approach.
+> SemanticLakehouse.com is an educational platform dedicated to Data Lakehouses, the Semantic Layer, Agentic Analytics, and Query Federation, with a focus on Dremio's unified engine-catalog-semantic layer approach.
 
 ## Structure
-- / : Home page defining core concepts.
-- /blog : Directory of blogs aggregated from datalakehousehub.com.
-- /reading : Recommended books on Data and AI authored by Alex Merced.
-- /knowledge-base : A comprehensive dictionary of data engineering and analytics terms.
+- [Home](https://semanticlakehouse.com/): Home page defining core concepts.
+- [Blog](https://semanticlakehouse.com/blog): Directory of blogs aggregated from datalakehousehub.com.
+- [Reading](https://semanticlakehouse.com/reading): Recommended books on Data and AI authored by Alex Merced.
+- [Knowledge Base](https://semanticlakehouse.com/knowledge-base): A comprehensive dictionary of data engineering and analytics terms.
+
+## Author
+
+Created and maintained by [Alex Merced](https://whoisalexmerced.com), Head of Developer Relations at Dremio and O'Reilly/Manning author.
+
+- [WhoIsAlexMerced.com](https://whoisalexmerced.com): About Alex Merced.
+- [AlexMerced.com](https://alexmerced.com): Personal hub and links.
+- [AlexMercedData.com](https://alexmerceddata.com): Data content and resources.
+- [LinkedIn](https://www.linkedin.com/in/alexmerced): Professional profile.
+- [@alexmercedcoder on Twitter/X](https://twitter.com/alexmercedcoder): Social profile.
+
+## Related Properties
+
+- [DataEngr.com](https://dataengnr.com): Data engineering knowledge base (Apache Iceberg, lakehouse, AI).
+- [AgenticLakehouse.com](https://agenticlakehouse.com): Knowledge hub on agentic lakehouses and agentic analytics.
+- [Books by Alex Merced](https://books.alexmerced.com): O'Reilly and Manning titles.

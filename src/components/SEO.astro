@@ -3,15 +3,45 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
+  jsonLd?: object;
 }
 
 const { 
   title, 
   description, 
-  image = '/default-og.png' 
+  image = '/default-og.png',
+  jsonLd
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://semanticlakehouse.com/#website",
+      "url": "https://semanticlakehouse.com/",
+      "name": "SemanticLakehouse.com",
+      "description": "Educational platform dedicated to data lakehouses, the semantic layer, agentic analytics, and query federation.",
+      "publisher": { "@id": "https://semanticlakehouse.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://semanticlakehouse.com/#person",
+      "name": "Alex Merced",
+      "jobTitle": "Head of Developer Relations at Dremio",
+      "url": "https://whoisalexmerced.com",
+      "sameAs": [
+        "https://whoisalexmerced.com",
+        "https://alexmerced.com",
+        "https://alexmerceddata.com",
+        "https://www.linkedin.com/in/alexmerced",
+        "https://twitter.com/alexmercedcoder"
+      ]
+    }
+  ]
+};
 ---
 
 <!-- Global Metadata -->
@@ -41,3 +71,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(siteJsonLd)} />
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

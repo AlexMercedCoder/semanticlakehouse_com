@@ -5,15 +5,16 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  jsonLd?: object;
 }
 
-const { title, description } = Astro.props;
+const { title, description, jsonLd } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <SEO title={title} description={description} />
+    <SEO title={title} description={description} jsonLd={jsonLd} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Outfit:wght@300;400;500;700;800&family=Space+Mono&display=swap" rel="stylesheet">
@@ -49,6 +50,11 @@ const { title, description } = Astro.props;
             <li><a href="https://opendatalakehouse.com" target="_blank" rel="noopener">OpenDataLakehouse.com</a></li>
             <li><a href="https://agenticlakehouse.com" target="_blank" rel="noopener">AgenticLakehouse.com</a></li>
             <li><a href="https://alexmerceddata.com" target="_blank" rel="noopener">AlexMercedData.com</a></li>
+            <li><a href="https://whoisalexmerced.com" target="_blank" rel="noopener">WhoIsAlexMerced.com</a></li>
+            <li><a href="https://alexmercedmedia.com" target="_blank" rel="noopener">AlexMercedMedia.com</a></li>
+            <li><a href="https://books.alexmerced.com" target="_blank" rel="noopener">Books by Alex Merced</a></li>
+            <li><a href="https://alexmercedcoder.dev" target="_blank" rel="noopener">AlexMercedCoder.dev</a></li>
+            <li><a href="https://alexmercedlibertarian.com" target="_blank" rel="noopener">AlexMercedLibertarian.com</a></li>
           </ul>
         </div>
         <p class="copyright">&copy; {new Date().getFullYear()} SemanticLakehouse.com. Built with Astro.</p>

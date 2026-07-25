@@ -12,9 +12,23 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const termJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": entry.data.title,
+  "description": entry.data.description,
+  "url": `https://semanticlakehouse.com/knowledge-base/${entry.id}/`,
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "SemanticLakehouse.com Knowledge Base",
+    "url": "https://semanticlakehouse.com/knowledge-base/"
+  },
+  "author": { "@id": "https://semanticlakehouse.com/#person" }
+};
 ---
 
-<Layout title={`${entry.data.title} | Knowledge Base`} description={entry.data.description}>
+<Layout title={`${entry.data.title} | Knowledge Base`} description={entry.data.description} jsonLd={termJsonLd}>
   <article class="container article-container card">
     <header class="article-header">
       <h1>{entry.data.title}</h1>
