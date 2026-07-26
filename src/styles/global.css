@@ -3,8 +3,8 @@
   --color-midnight-eclipse: #090909;
   --color-cloud-whisper: #f7f9fa;
   --color-code-ghost: #f0f0f0;
-  --color-slate-hint: #6b6b6b;
-  --color-steel-accent: #475467;
+  --color-slate-hint: #9aa5b3;   /* AA on dark canvas (~7.5:1) — was #6b6b6b (3.4:1) */
+  --color-steel-accent: #b8c2cf; /* AA on dark canvas (ghost button) — was #475467 (2.4:1) */
   --color-deep-violet: #00d2ff;
   --color-cosmic-gradient-a: #0077b6;
   --gradient-cosmic-gradient-a: radial-gradient(circle closest-corner at 10% 50%, rgba(0, 168, 255, 0.4), rgba(0, 0, 0, 0) 55%);
@@ -96,6 +96,26 @@ body {
   font-size: var(--text-body);
 }
 
+/* Accessibility: skip-link + visible focus outline */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 20px;
+  background: var(--color-deep-violet);
+  color: var(--color-midnight-eclipse);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
+}
+:focus-visible {
+  outline: 3px solid var(--color-deep-violet);
+  outline-offset: 2px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-whyte-inktrap);
   color: var(--color-cloud-whisper);
@@ -153,7 +173,7 @@ a:hover {
 .btn {
   display: inline-block;
   background-color: var(--color-deep-violet);
-  color: var(--color-cloud-whisper) !important;
+  color: var(--color-midnight-eclipse) !important; /* dark text on cyan — AA (~11:1) */
   padding: 16px 16px;
   border-radius: var(--radius-buttons);
   font-family: var(--font-whyte-inktrap);

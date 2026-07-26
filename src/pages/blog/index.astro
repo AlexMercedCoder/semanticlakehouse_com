@@ -39,7 +39,13 @@ try {
     </div>
 
     <div class="blog-grid" id="blogGrid">
-      <!-- Populated by JS -->
+      {/* Server-rendered for crawlability; JS enhances with search + pagination */}
+      {blogs.map(blog => (
+        <a href={blog.url} target="_blank" rel="noopener noreferrer" class="card blog-card">
+          <h3>{blog.title}</h3>
+          <span class="date">{blog.date}</span>
+        </a>
+      ))}
     </div>
     
     <div class="pagination" id="paginationControls">
@@ -186,7 +192,7 @@ try {
   }
   .page-btn.active {
     background: var(--color-deep-violet);
-    color: #fff;
+    color: var(--color-midnight-eclipse);
     border-color: var(--color-deep-violet);
   }
 </style>
