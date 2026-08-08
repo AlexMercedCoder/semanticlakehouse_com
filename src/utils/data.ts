@@ -4,63 +4,63 @@ export const books = [
         category: "tech",
         description: "Guide to Apache Iceberg and modern lakehouse architecture.",
         amazon_url: "https://www.amazon.com/dp/1098148622",
-        cover_image_url: "https://images.amazon.com/images/P/1098148622.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/1098148622.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Architecting an Apache Iceberg Lakehouse",
         category: "tech",
         description: "Architecture patterns for building Iceberg-based data platforms.",
         amazon_url: "https://www.amazon.com/dp/1633435105",
-        cover_image_url: "https://images.amazon.com/images/P/1633435105.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/1633435105.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Apache Polaris: The Definitive Guide",
         category: "tech",
         description: "Guide to open catalogs for Iceberg lakehouses.",
         amazon_url: "https://www.amazon.com/dp/B0FBRJ7J1Y",
-        cover_image_url: "https://images.amazon.com/images/P/B0FBRJ7J1Y.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0FBRJ7J1Y.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The Book on Using Apache Iceberg with Python",
         category: "tech",
         description: "Hands-on guide using Iceberg with Python tools.",
         amazon_url: "https://www.amazon.com/dp/B0GNZ454FF",
-        cover_image_url: "https://images.amazon.com/images/P/B0GNZ454FF.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GNZ454FF.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The 2026 Guide to Lakehouses, Apache Iceberg and Agentic AI",
         category: "tech",
         description: "Comprehensive guide to lakehouse architecture and AI.",
         amazon_url: "https://www.amazon.com/dp/B0GQNY21TD",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQNY21TD.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQNY21TD.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The Book on Agentic Analytics",
         category: "tech",
         description: "Foundations of agentic data architecture.",
         amazon_url: "https://www.amazon.com/dp/B0GQN4Q41Y",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQN4Q41Y.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQN4Q41Y.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Enabling Agentic Analytics with Apache Iceberg and Dremio",
         category: "tech",
         description: "Building AI-ready lakehouse systems.",
         amazon_url: "https://www.amazon.com/dp/B0GQXT6W3N",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQXT6W3N.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQXT6W3N.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Using AI Agents for Data Engineering and Data Analysis",
         category: "tech",
         description: "Practical guide to AI-driven workflows.",
         amazon_url: "https://www.amazon.com/dp/B0GR6PYJT9",
-        cover_image_url: "https://images.amazon.com/images/P/B0GR6PYJT9.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GR6PYJT9.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The AI Engineering Handbook",
         category: "tech",
         description: "Full-stack reference for AI systems.",
         amazon_url: "https://www.amazon.com/dp/B0GSS4R9FK",
-        cover_image_url: "https://images.amazon.com/images/P/B0GSS4R9FK.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GSS4R9FK.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "AI-Ready Data",
@@ -74,7 +74,7 @@ export const books = [
         category: "tech",
         description: "Prompt engineering and agent workflows.",
         amazon_url: "https://www.amazon.com/dp/B0GQW7CTML",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQW7CTML.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQW7CTML.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Apache Iceberg for Agentic AI: Connecting Structured Enterprise",
@@ -167,28 +167,28 @@ export const books = [
         category: "economics",
         description: "History of economic thought through the AI era.",
         amazon_url: "https://www.amazon.com/dp/B0GQQ68F63",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQQ68F63.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQQ68F63.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The Field Guide to Libertarianism",
         category: "economics",
         description: "Understanding libertarian ideas and debates.",
         amazon_url: "https://www.amazon.com/dp/B0GQV4CK5B",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQV4CK5B.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQV4CK5B.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The Libertarian Heart",
         category: "economics",
         description: "Philosophy of consent and individual peace.",
         amazon_url: "https://www.amazon.com/dp/035975211X",
-        cover_image_url: "https://images.amazon.com/images/P/035975211X.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/035975211X.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Profits are Generosity, Entrepreneurship is Philanthropy",
         category: "economics",
         description: "Economic philosophy of voluntary exchange.",
         amazon_url: "https://www.amazon.com/dp/1387798421",
-        cover_image_url: "https://images.amazon.com/images/P/1387798421.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/1387798421.01._SCLZZZZZZZ_.jpg"
       },
 
       // Fiction
@@ -197,56 +197,56 @@ export const books = [
         category: "fiction",
         description: "A data engineer's journey through a changing world.",
         amazon_url: "https://www.amazon.com/dp/B0GPMNX78W",
-        cover_image_url: "https://images.amazon.com/images/P/B0GPMNX78W.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GPMNX78W.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The Emperors of A.I. Valley",
         category: "fiction",
         description: "Power struggles in an AI-dominated future.",
         amazon_url: "https://www.amazon.com/dp/B0GQHKF4ZT",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQHKF4ZT.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQHKF4ZT.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "The Federation of Tides",
         category: "fiction",
         description: "Epic journey of a narwhal seeking knowledge.",
         amazon_url: "https://www.amazon.com/dp/B0GPRBTV6W",
-        cover_image_url: "https://images.amazon.com/images/P/B0GPRBTV6W.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GPRBTV6W.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Plastic Punk",
         category: "fiction",
         description: "A journey through economic systems.",
         amazon_url: "https://www.amazon.com/dp/B0GQGRFW2H",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQGRFW2H.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQGRFW2H.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Embers of Claim",
         category: "fiction",
         description: "Epic fantasy beginning of a trilogy.",
         amazon_url: "https://www.amazon.com/dp/B0GQGW7VCY",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQGW7VCY.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQGW7VCY.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Crowns and Wings",
         category: "fiction",
         description: "Second book in epic fantasy trilogy.",
         amazon_url: "https://www.amazon.com/dp/B0GQGHYL79",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQGHYL79.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQGHYL79.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Thrones of Ash and Sky",
         category: "fiction",
         description: "Final book of trilogy.",
         amazon_url: "https://www.amazon.com/dp/B0GQCHRYHV",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQCHRYHV.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQCHRYHV.01._SCLZZZZZZZ_.jpg"
       },
       {
         title: "Tales of Fur and Sky: Echoes of the Ages",
         category: "fiction",
         description: "Companion to the trilogy.",
         amazon_url: "https://www.amazon.com/dp/B0GQGRGH93",
-        cover_image_url: "https://images.amazon.com/images/P/B0GQGRGH93.01._SCLZZZZZZZ_.jpg"
+        cover_image_url: "https://m.media-amazon.com/images/P/B0GQGRGH93.01._SCLZZZZZZZ_.jpg"
       }
     ]
 ;

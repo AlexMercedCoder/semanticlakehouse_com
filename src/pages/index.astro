@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Parser from 'rss-parser';
 import { books } from '../utils/data';
+import videos from '../data/videos.json';
 
 // Fetch latest 3 blogs
 let latestBlogs: { title: string, url: string, date: string }[] = [];
@@ -11,8 +12,8 @@ try {
   latestBlogs = feed.items
     .filter(item => {
       const url = item.link || '';
-      return url.startsWith('https://datalakehousehub.com/blog/') && 
-             !url.endsWith('/blog/index/') && 
+      return url.startsWith('https://datalakehousehub.com/blog/') &&
+             !url.endsWith('/blog/index/') &&
              !url.endsWith('/blog/index');
     })
     .slice(0, 3)
@@ -27,87 +28,176 @@ try {
 
 // Get main books (O'Reilly / Manning)
 const mainBooks = books.slice(0, 2);
+const featuredVideos = videos.slice(0, 3);
+
+// Answer-first Q&A, mirrored into FAQPage structured data so answer engines can
+// quote it directly. Keep the on-page copy and the schema identical.
+const faqs = [
+  {
+    q: 'What is a semantic lakehouse?',
+    a: 'A semantic lakehouse is a data lakehouse with a governed semantic layer on top of it. The lakehouse keeps data in open files and open table formats such as Apache Iceberg on storage you own. The semantic layer defines what the numbers in those tables mean, as named metrics, dimensions and relationships. Together they let dashboards, notebooks and AI agents answer from the same definitions over the same open data.'
+  },
+  {
+    q: 'What is a semantic layer?',
+    a: 'A semantic layer is the executable bridge between physical tables and the questions people ask. It holds metrics with their exact filters and time logic, the dimensions that slice them, and the declared keys that make joins safe. Because the definitions run rather than sit in a wiki, every consumer that asks for revenue gets the same number.'
+  },
+  {
+    q: 'How is a semantic layer different from a data catalog?',
+    a: 'A catalog tells you what data exists, who owns it, and who may see it. A semantic layer tells you what the data means and can execute that meaning as a query. Most lakehouse architectures run both: the catalog governs access and lineage over the tables, the semantic layer governs definitions over the catalog.'
+  },
+  {
+    q: 'Why do AI agents need a semantic layer?',
+    a: 'Protocols like MCP connect an agent to your data but carry no opinion about meaning, so an agent pointed at raw schemas infers formulas from column names and reports guesses with confidence. Grounded in governed metrics, it queries an endorsed definition and can cite it. Widely cited text-to-SQL evaluations land near 40 percent accuracy against raw schemas and above 80 percent when the model resolves through a governed semantic layer.'
+  },
+  {
+    q: 'What is Apache Ossie?',
+    a: 'Apache Ossie is the incubating Apache Software Foundation project formerly known as Open Semantic Interchange. It is a vendor-neutral YAML specification for metrics, dimensions and relationships, so semantic definitions can move between BI, analytics and AI platforms instead of being locked to one dialect. It launched as an industry initiative in 2025, published its specification under Apache 2.0 in January 2026, and entered the Apache Incubator in June 2026 with Snowflake, dbt Labs, Dremio and Salesforce among its backers.'
+  },
+  {
+    q: 'What is headless BI?',
+    a: 'Headless BI runs the semantic model as a service rather than as a feature inside one dashboard tool. Definitions live behind an API that speaks SQL, REST, JDBC/ODBC, Arrow Flight SQL or MCP, so every consumer resolves against the same model and the front end becomes replaceable.'
+  }
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://semanticlakehouse.com/#faq",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
-<Layout 
-  title="SemanticLakehouse.com | Data Lakehouses & Agentic Analytics" 
-  description="Learn about the Semantic Layer, Data Lakehouses, Query Federation, and how Dremio integrates engine, catalog, and semantic layer into a unified platform."
+<Layout
+  title="Semantic Lakehouse: Semantic Layers on Open Data"
+  description="What a semantic layer is, how it works, and how it pairs with an open lakehouse: metrics, dimensions, governed definitions, headless BI and AI agents."
+  jsonLd={faqJsonLd}
 >
   <section class="hero">
     <div class="container hero-content">
-      <h1>The Future of Data is the <span class="highlight">Semantic Lakehouse</span></h1>
-      <p class="subtitle">Empowering Agentic Analytics through a unified Engine, Catalog, and Semantic Layer.</p>
+      <p class="eyebrow">Semantic layers &middot; Lakehouse &middot; Agentic analytics</p>
+      <h1>The <span class="highlight">Semantic Lakehouse</span></h1>
+      <p class="subtitle">Open tables settle where your data lives. A semantic layer settles what it means. Put both in place and every dashboard, notebook and agent answers from the same definitions.</p>
       <div class="cta-buttons">
-        <a href="#concepts" class="btn">Explore Concepts</a>
-        <a href="/knowledge-base" class="btn btn-outline">Knowledge Base</a>
+        <a href="#concepts" class="btn">Start with the four ideas</a>
+        <a href="/videos" class="btn btn-outline">Watch the explainers</a>
       </div>
     </div>
   </section>
 
-  <section id="concepts" class="container concepts-grid">
-    <div class="card">
-      <h2>Semantic Layer</h2>
-      <p>A unified business representation of data, mapping complex underlying structures into familiar, governed metrics and dimensions. It ensures everyone—and every AI agent—speaks the same data language.</p>
-    </div>
-    
-    <div class="card">
-      <h2>Data Lakehouse</h2>
-      <p>Combining the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses, typically enabled by formats like Apache Iceberg.</p>
-    </div>
+  <section id="concepts" class="container concepts-section">
+    <h2 class="section-heading">Four ideas this site keeps coming back to</h2>
+    <div class="concepts-grid">
+      <div class="card">
+        <h3>Semantic layer</h3>
+        <p>The executable bridge between physical tables and the questions people ask. It holds the metrics, dimensions and relationships every consumer resolves against, so a word like revenue means one thing across the company and to every AI agent reading it.</p>
+        <a href="/knowledge-base/semantic-layer" class="card-link">Semantic layer in the knowledge base</a>
+      </div>
 
-    <div class="card">
-      <h2>Agentic Analytics</h2>
-      <p>The next frontier of AI, where autonomous agents not only answer questions but take actions and build workflows based on the governed context provided by a Semantic Layer.</p>
-    </div>
+      <div class="card">
+        <h3>Data lakehouse</h3>
+        <p>Data kept in open files and open table formats on storage you own, with the transactions, schema evolution and time travel a warehouse gave you. Apache Iceberg is how most teams get there, and the engine stops being the thing that holds the data hostage.</p>
+        <a href="/knowledge-base/apache-iceberg" class="card-link">Apache Iceberg in the knowledge base</a>
+      </div>
 
-    <div class="card">
-      <h2>Query Federation & Data Virtualization</h2>
-      <p>Access and query data where it lives without physically moving it. Virtualization provides a single access point across multiple heterogeneous sources.</p>
+      <div class="card">
+        <h3>Agentic analytics</h3>
+        <p>Agents do not stop at answering. They plan, query and act. What they believe your business means comes from the context you hand them, which is why governed definitions decide whether their answers hold up.</p>
+        <a href="/knowledge-base/agentic-analytics" class="card-link">Agentic analytics in the knowledge base</a>
+      </div>
+
+      <div class="card">
+        <h3>Query federation</h3>
+        <p>Query data where it already sits instead of copying it somewhere first. One access point across sources, with joins and filters pushed down to each one, so the semantic layer can span systems that were never going to merge.</p>
+        <a href="/knowledge-base/query-federation" class="card-link">Query federation in the knowledge base</a>
+      </div>
     </div>
   </section>
-  
+
+  {featuredVideos.length > 0 && (
+    <section class="container videos-teaser">
+      <h2 class="section-heading">Short explainers, no narration</h2>
+      <p class="section-lede">Animated 16:9 breakdowns of the ideas above. Every point is on screen, so they read the same muted or embedded in your own docs.</p>
+      <div class="video-teaser-grid">
+        {featuredVideos.map(v => (
+          <a href={`/videos#${v.slug}`} class="card video-teaser-card">
+            <img src={v.poster} alt={`Title card for the explainer video ${v.title}`} width="1920" height="1080" loading="lazy" decoding="async" />
+            <h3>{v.title}</h3>
+          </a>
+        ))}
+      </div>
+      <div class="view-all">
+        <a href="/videos" class="btn btn-outline">All {videos.length} explainers</a>
+      </div>
+    </section>
+  )}
+
   <section class="container latest-content">
     <div class="split-section">
       <div class="latest-blogs">
-        <h2>Latest from the Hub</h2>
+        <h2 class="section-heading">Latest from the Hub</h2>
         <div class="blog-list">
           {latestBlogs.map(blog => (
             <a href={blog.url} target="_blank" rel="noopener noreferrer" class="card mini-blog-card">
-              <h4>{blog.title}</h4>
+              <h3>{blog.title}</h3>
               <span class="date">{blog.date}</span>
             </a>
           ))}
         </div>
         <div class="view-all">
-          <a href="/blog" class="btn btn-outline">View All Blogs</a>
+          <a href="/blog" class="btn btn-outline">View all articles</a>
         </div>
       </div>
-      
+
       <div class="featured-books">
-        <h2>Featured Books</h2>
+        <h2 class="section-heading">Books</h2>
         <div class="books-grid">
           {mainBooks.map(book => (
             <a href={book.amazon_url} target="_blank" rel="noopener noreferrer" class="card mini-book-card">
-              <img 
-                src={book.cover_image_url} 
-                alt={`Cover of ${book.title}`} 
+              <img
+                src={book.cover_image_url}
+                alt={`Cover of ${book.title}`}
                 loading="lazy"
+                decoding="async"
               />
             </a>
           ))}
         </div>
         <div class="view-all">
-          <a href="/reading" class="btn btn-outline">View All Books</a>
+          <a href="/reading" class="btn btn-outline">The full reading list</a>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="container faq-section">
+    <h2 class="section-heading">Questions people ask first</h2>
+    <div class="faq-list">
+      {faqs.map(f => (
+        <details class="card faq-item">
+          <summary><h3>{f.q}</h3></summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
   <section class="dremio-section container">
     <div class="card dremio-card">
-      <h2>The Dremio Difference</h2>
-      <p>Dremio uniquely integrates the <strong>Engine</strong>, <strong>Catalog</strong>, and <strong>Semantic Layer</strong> into a single, cohesive platform. This unified approach eliminates silos, accelerates time-to-insight, and provides the perfect foundation for modern Lakehouses and Agentic AI workloads.</p>
-      <a href="https://www.dremio.com" target="_blank" rel="noopener noreferrer" class="btn">Discover Dremio</a>
+      <h2>Where Dremio fits</h2>
+      <p>Dremio runs the engine, the catalog and the semantic layer in one place, over Iceberg tables in storage you own. Governed definitions sit beside the data they describe, Reflections accelerate them to interactive speed, and the same access rules cover a dashboard query and an agent's MCP call.</p>
+      <a href="https://www.dremio.com" target="_blank" rel="noopener noreferrer" class="btn">Explore Dremio</a>
+    </div>
+  </section>
+
+  <section class="container author-section">
+    <div class="card author-card">
+      <h2>Who writes this</h2>
+      <p>SemanticLakehouse.com is written by <a href="https://whoisalexmerced.com" target="_blank" rel="noopener">Alex Merced</a>, Open Lakehouse &amp; AI Advocate, Author &amp; Technologist. He co-wrote <em>Apache Iceberg: The Definitive Guide</em> (O'Reilly) and <em>Architecting an Apache Iceberg Lakehouse</em> (Manning), and works on developer relations at Dremio.</p>
+      <p>The same ideas run across <a href="https://datalakehousehub.com" target="_blank" rel="noopener">DataLakehouseHub.com</a>, <a href="https://iceberglakehouse.com" target="_blank" rel="noopener">IcebergLakehouse.com</a> and <a href="https://agenticlakehouse.com" target="_blank" rel="noopener">AgenticLakehouse.com</a>.</p>
     </div>
   </section>
 </Layout>
@@ -121,8 +211,16 @@ const mainBooks = books.slice(0, 2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
   .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: var(--font-whyte-inktrap-mono);
+    font-size: var(--text-body-sm);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-deep-violet);
+    margin-bottom: 1.5rem;
   }
   .hero h1 {
     font-size: var(--text-display);
@@ -144,17 +242,75 @@ const mainBooks = books.slice(0, 2);
     display: flex;
     gap: 1.5rem;
     justify-content: center;
+    flex-wrap: wrap;
+  }
+  .section-heading {
+    font-family: var(--font-whyte-inktrap-mono);
+    text-transform: uppercase;
+    font-size: clamp(1.1rem, 3.5vw, var(--text-heading-sm));
+    line-height: 1.3;
+    letter-spacing: 0.18em;
+    color: var(--color-code-ghost);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .section-lede {
+    text-align: center;
+    color: var(--color-slate-hint);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+  }
+  .concepts-section {
+    margin-top: 4rem;
   }
   .concepts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
-    margin-top: -3rem;
-    position: relative;
-    z-index: 10;
+    margin-top: 2.5rem;
   }
-  .latest-content {
+  /* Four cards read as a 2x2 block; auto-fit left one card stranded on a row. */
+  @media (min-width: 700px) {
+    .concepts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .concepts-grid p {
+    color: var(--color-slate-hint);
+    margin-bottom: 1.25rem;
+  }
+  .card-link {
+    font-size: var(--text-body-sm);
+    color: var(--color-deep-violet);
+    font-weight: 500;
+  }
+  .videos-teaser,
+  .latest-content,
+  .faq-section {
     margin-top: 5rem;
+  }
+  .video-teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .video-teaser-card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .video-teaser-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+  .video-teaser-card h3 {
+    font-size: var(--text-body);
+    margin: 0;
+    padding: 1.25rem;
   }
   .split-section {
     display: grid;
@@ -165,15 +321,9 @@ const mainBooks = books.slice(0, 2);
     .split-section {
       grid-template-columns: 1fr;
     }
-  }
-  .latest-blogs h2, .featured-books h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-family: var(--font-whyte-inktrap-mono);
-    text-transform: uppercase;
-    font-size: var(--text-heading-sm);
-    letter-spacing: 0.2em;
-    color: var(--color-code-ghost);
+    .hero {
+      padding: 3.5rem 0;
+    }
   }
   .blog-list {
     display: flex;
@@ -187,7 +337,7 @@ const mainBooks = books.slice(0, 2);
     padding: 1.5rem;
     border-radius: var(--radius-cards);
   }
-  .mini-blog-card h4 {
+  .mini-blog-card h3 {
     margin: 0;
     font-size: var(--text-body);
     flex: 1;
@@ -215,14 +365,63 @@ const mainBooks = books.slice(0, 2);
   .mini-book-card img {
     width: 100%;
     max-height: 350px;
+    aspect-ratio: 2 / 3;
     object-fit: contain;
   }
   .view-all {
     text-align: center;
     margin-top: 2rem;
   }
-  .dremio-section {
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    padding: 0;
+  }
+  .faq-item:hover {
+    transform: none;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    padding: 1.5rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: '+';
+    margin-left: auto;
+    color: var(--color-deep-violet);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after {
+    content: '\2212';
+  }
+  .faq-item summary h3 {
+    display: inline;
+    margin: 0;
+    font-size: var(--text-body);
+    font-weight: 700;
+  }
+  .faq-item > p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--color-slate-hint);
+    margin: 0;
+  }
+  .dremio-section,
+  .author-section {
     margin-top: 5rem;
+  }
+  .author-section {
     margin-bottom: 3rem;
   }
   .dremio-card {
@@ -233,5 +432,22 @@ const mainBooks = books.slice(0, 2);
   .dremio-card p {
     color: var(--color-cloud-whisper);
     margin-bottom: 2rem;
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .author-card {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .author-card p {
+    color: var(--color-slate-hint);
+    margin-bottom: 1rem;
+  }
+  .author-card p:last-child {
+    margin-bottom: 0;
+  }
+  .author-card a {
+    color: var(--color-deep-violet);
   }
 </style>

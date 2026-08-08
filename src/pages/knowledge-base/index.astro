@@ -5,22 +5,50 @@ import Layout from '../../layouts/Layout.astro';
 const terms = await getCollection('terms');
 // Sort terms alphabetically by title
 terms.sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+// DefinedTermSet + BreadcrumbList so the glossary is legible as one entity rather
+// than 100 unrelated pages.
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://semanticlakehouse.com/knowledge-base/#termset",
+      "name": "SemanticLakehouse.com Knowledge Base",
+      "description": "Definitions for semantic layer, data lakehouse and AI terms.",
+      "url": "https://semanticlakehouse.com/knowledge-base/",
+      "hasDefinedTerm": terms.map(t => ({
+        "@type": "DefinedTerm",
+        "name": t.data.title,
+        "url": `https://semanticlakehouse.com/knowledge-base/${t.id}/`
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://semanticlakehouse.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://semanticlakehouse.com/knowledge-base/" }
+      ]
+    }
+  ]
+};
 ---
 
-<Layout 
-  title="Knowledge Base | SemanticLakehouse.com" 
-  description="Comprehensive dictionary of data engineering and analytics terms."
+<Layout
+  title="Semantic Layer & Lakehouse Glossary | SemanticLakehouse"
+  description="Plain definitions for semantic layer, lakehouse and AI terms: metrics stores, Apache Iceberg, query federation, agentic analytics and more."
+  jsonLd={collectionJsonLd}
 >
   <div class="container page-header">
-    <h1>Knowledge Base</h1>
-    <p>Your dictionary for the modern data stack.</p>
+    <h1>Knowledge base</h1>
+    <p>{terms.length} short definitions covering semantic layers, the lakehouse, and the AI systems that read them. Each entry says what the term means, how it works, and where it lands in a lakehouse architecture.</p>
   </div>
 
   <div class="container">
     <div class="terms-grid">
       {terms.map(term => (
         <a href={`/knowledge-base/${term.id}`} class="card term-card">
-          <h3>{term.data.title}</h3>
+          <h2>{term.data.title}</h2>
         </a>
       ))}
     </div>
@@ -41,8 +69,11 @@ terms.sort((a, b) => a.data.title.localeCompare(b.data.title));
     text-align: center;
     padding: 2rem 1rem;
   }
-  .term-card h3 {
+  .term-card h2 {
     margin: 0;
     font-size: 1.1rem;
+    line-height: 1.4;
+    letter-spacing: normal;
+    font-weight: 700;
   }
 </style>

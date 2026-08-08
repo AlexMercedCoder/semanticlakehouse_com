@@ -3,22 +3,22 @@
   --color-midnight-eclipse: #090909;
   --color-cloud-whisper: #f7f9fa;
   --color-code-ghost: #f0f0f0;
-  --color-slate-hint: #9aa5b3;   /* AA on dark canvas (~7.5:1) — was #6b6b6b (3.4:1) */
-  --color-steel-accent: #b8c2cf; /* AA on dark canvas (ghost button) — was #475467 (2.4:1) */
+  --color-slate-hint: #9aa5b3;   /* AA on dark canvas (~7.5:1), was #6b6b6b (3.4:1) */
+  --color-steel-accent: #b8c2cf; /* AA on dark canvas (ghost button), was #475467 (2.4:1) */
   --color-deep-violet: #00d2ff;
   --color-cosmic-gradient-a: #0077b6;
   --gradient-cosmic-gradient-a: radial-gradient(circle closest-corner at 10% 50%, rgba(0, 168, 255, 0.4), rgba(0, 0, 0, 0) 55%);
   --color-cosmic-gradient-b: #004b78;
   --gradient-cosmic-gradient-b: linear-gradient(90deg, rgba(0, 75, 120, 0.5), rgba(0, 120, 200, 0.5) 50%, rgba(0, 160, 220, 0.5));
 
-  /* Typography — Font Families */
+  /* Typography: font families */
   --font-whyte-inktrap: 'Montserrat', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-whyte-inktrap-mono: 'Space Mono', ui-monospace, monospace;
   --font-grandslang: 'Outfit', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-system-ui: system-ui, -apple-system, sans-serif;
   --font-karla: 'Karla', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-  /* Typography — Scale */
+  /* Typography: scale */
   --text-caption: 10px;
   --leading-caption: 1.5;
   --text-body-sm: 14px;
@@ -122,19 +122,34 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
+/* Fluid ramp: the fixed px scale below is the desktop ceiling, but a 88px display
+   line with -6.16px tracking overflows a phone. clamp() keeps the same proportions
+   without a layout shift on load. */
 h1 {
   font-family: var(--font-grandslang);
-  font-size: var(--text-display);
-  line-height: var(--leading-display);
-  letter-spacing: var(--tracking-display);
+  font-size: clamp(2.5rem, 7vw, var(--text-display));
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   font-weight: 300;
 }
 
 h2 {
-  font-size: var(--text-heading);
-  line-height: var(--leading-heading);
-  letter-spacing: var(--tracking-heading);
+  font-size: clamp(1.75rem, 4vw, var(--text-heading));
+  line-height: 1.06;
+  letter-spacing: -0.03em;
   font-weight: 500;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 2vw, var(--text-subheading));
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -173,7 +188,7 @@ a:hover {
 .btn {
   display: inline-block;
   background-color: var(--color-deep-violet);
-  color: var(--color-midnight-eclipse) !important; /* dark text on cyan — AA (~11:1) */
+  color: var(--color-midnight-eclipse) !important; /* dark text on cyan, AA (~11:1) */
   padding: 16px 16px;
   border-radius: var(--radius-buttons);
   font-family: var(--font-whyte-inktrap);
