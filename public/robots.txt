@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI / answer-engine crawlers — explicitly welcomed
+# AI and answer-engine crawlers: explicitly welcomed
 User-agent: GPTBot
 Allow: /
 
@@ -33,6 +33,24 @@ User-agent: CCBot
 Allow: /
 
 User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Timpibot
 Allow: /
 
 Sitemap: https://semanticlakehouse.com/sitemap-index.xml

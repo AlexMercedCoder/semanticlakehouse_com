@@ -4,40 +4,83 @@ export interface Props {
   description: string;
   image?: string;
   jsonLd?: object;
+  /** Override the canonical URL (used by pages that live under more than one path). */
+  canonical?: string;
+  ogType?: string;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   image = '/default-og.png',
-  jsonLd
+  jsonLd,
+  canonical,
+  ogType = 'website'
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const SITE = 'https://semanticlakehouse.com';
 
+// Astro.site is set in astro.config.mjs, so canonicals always resolve against the
+// production origin rather than whatever host served the build.
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const imageURL = new URL(image, Astro.site).href;
+
+// One @graph, one @id per entity, referenced by every page-level block. Keeping
+// the Person node and its sameAs list identical across the network is what lets
+// answer engines resolve "Alex Merced" to a single entity.
 const siteJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://semanticlakehouse.com/#website",
-      "url": "https://semanticlakehouse.com/",
+      "@id": `${SITE}/#website`,
+      "url": `${SITE}/`,
       "name": "SemanticLakehouse.com",
-      "description": "Educational platform dedicated to data lakehouses, the semantic layer, agentic analytics, and query federation.",
-      "publisher": { "@id": "https://semanticlakehouse.com/#person" }
+      "description": "Semantic layers on an open lakehouse: metrics, dimensions, governed definitions, headless BI, Apache Ossie and AI agents.",
+      "inLanguage": "en-US",
+      "publisher": { "@id": `${SITE}/#person` },
+      "about": [
+        { "@type": "Thing", "name": "Semantic layer" },
+        { "@type": "Thing", "name": "Data lakehouse" },
+        { "@type": "Thing", "name": "Apache Iceberg" },
+        { "@type": "Thing", "name": "Agentic analytics" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalURL}#webpage`,
+      "url": canonicalURL,
+      "name": title,
+      "description": description,
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": `${SITE}/#website` },
+      "primaryImageOfPage": imageURL,
+      "author": { "@id": `${SITE}/#person` }
     },
     {
       "@type": "Person",
-      "@id": "https://semanticlakehouse.com/#person",
+      "@id": `${SITE}/#person`,
       "name": "Alex Merced",
-      "jobTitle": "Head of Developer Relations at Dremio",
+      "description": "Open Lakehouse & AI Advocate, Author & Technologist.",
+      "jobTitle": "Open Lakehouse & AI Advocate, Author & Technologist",
       "url": "https://whoisalexmerced.com",
+      "worksFor": { "@type": "Organization", "name": "Dremio", "url": "https://www.dremio.com" },
+      "knowsAbout": [
+        "Semantic layers",
+        "Data lakehouse architecture",
+        "Apache Iceberg",
+        "Query federation",
+        "Agentic analytics"
+      ],
       "sameAs": [
         "https://whoisalexmerced.com",
         "https://alexmerced.com",
         "https://alexmerceddata.com",
+        "https://alexmercedcoder.dev",
+        "https://books.alexmerced.com",
         "https://www.linkedin.com/in/alexmerced",
-        "https://twitter.com/alexmercedcoder"
+        "https://twitter.com/alexmercedcoder",
+        "https://github.com/AlexMercedCoder"
       ]
     }
   ]
@@ -49,28 +92,40 @@ const siteJsonLd = {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <meta name="generator" content={Astro.generator} />
+<meta name="author" content="Alex Merced" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color" content="#090909" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Fonts are the only third-party origin; warm the connection early. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
-<meta name="title" content={title} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content="SemanticLakehouse.com" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:image:alt" content={title} />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@alexmercedcoder" />
+<meta name="twitter:creator" content="@alexmercedcoder" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content={title} />
 
 <!-- Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(siteJsonLd)} />

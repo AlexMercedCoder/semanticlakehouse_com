@@ -13,28 +13,66 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
+const url = `https://semanticlakehouse.com/knowledge-base/${entry.id}/`;
+
+// DefinedTerm for the glossary entity, a QAPage-style Question so answer engines
+// can lift the definition straight into "what is X", and a BreadcrumbList so the
+// page reports its place in the site rather than floating.
 const termJsonLd = {
   "@context": "https://schema.org",
-  "@type": "DefinedTerm",
-  "name": entry.data.title,
-  "description": entry.data.description,
-  "url": `https://semanticlakehouse.com/knowledge-base/${entry.id}/`,
-  "inDefinedTermSet": {
-    "@type": "DefinedTermSet",
-    "name": "SemanticLakehouse.com Knowledge Base",
-    "url": "https://semanticlakehouse.com/knowledge-base/"
-  },
-  "author": { "@id": "https://semanticlakehouse.com/#person" }
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": `${url}#term`,
+      "name": entry.data.title,
+      "description": entry.data.description,
+      "url": url,
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "@id": "https://semanticlakehouse.com/knowledge-base/#termset",
+        "name": "SemanticLakehouse.com Knowledge Base",
+        "url": "https://semanticlakehouse.com/knowledge-base/"
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": `${url}#question`,
+      "name": `What is ${entry.data.title}?`,
+      "acceptedAnswer": { "@type": "Answer", "text": entry.data.description },
+      "author": { "@id": "https://semanticlakehouse.com/#person" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://semanticlakehouse.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://semanticlakehouse.com/knowledge-base/" },
+        { "@type": "ListItem", "position": 3, "name": entry.data.title, "item": url }
+      ]
+    }
+  ]
 };
 ---
 
-<Layout title={`${entry.data.title} | Knowledge Base`} description={entry.data.description} jsonLd={termJsonLd}>
+<Layout
+  title={`What is ${entry.data.title}? | Semantic Lakehouse`}
+  description={entry.data.description}
+  jsonLd={termJsonLd}
+  ogType="article"
+>
   <article class="container article-container card">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">&rsaquo;</span>
+      <a href="/knowledge-base">Knowledge Base</a>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span aria-current="page">{entry.data.title}</span>
+    </nav>
     <header class="article-header">
       <h1>{entry.data.title}</h1>
       <p class="description">{entry.data.description}</p>
     </header>
-    
+
     <div class="prose">
       <Content />
     </div>
@@ -55,6 +93,11 @@ const termJsonLd = {
         </ul>
       </div>
     )}
+
+    <nav class="term-footer" aria-label="Knowledge base">
+      <a href="/knowledge-base">All knowledge base terms</a>
+      <a href="/videos">Watch the explainer videos</a>
+    </nav>
   </article>
 </Layout>
 
@@ -64,10 +107,24 @@ const termJsonLd = {
     margin: 4rem auto;
     padding: 3rem;
   }
+  .article-container:hover {
+    transform: none;
+  }
+  @media (max-width: 640px) {
+    .article-container {
+      margin: 2rem auto;
+      padding: 1.5rem;
+    }
+  }
   .article-header {
-    border-bottom: 1px solid var(--text-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     padding-bottom: 1.5rem;
     margin-bottom: 2rem;
+  }
+  .article-header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
   }
   .description {
     font-size: 1.2rem;
@@ -77,12 +134,90 @@ const termJsonLd = {
     line-height: 1.8;
     font-size: 1.1rem;
   }
-  .prose h2 {
+  /* The global ramp sizes h2 for hero sections; inside body prose it has to sit
+     below the h1 and above the paragraph without shouting. */
+  .prose :global(h2) {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose :global(h3) {
+    font-size: 1.25rem;
     margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose :global(p) {
+    margin-bottom: 1.25rem;
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 1.5rem 1.25rem;
+  }
+  .prose :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .prose :global(a) {
+    color: var(--color-deep-violet);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose :global(code) {
+    font-family: var(--font-whyte-inktrap-mono);
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
   }
   .related-terms {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .related-terms ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .related-terms a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-steel-accent);
+    border-radius: var(--radius-tags);
+    font-size: var(--text-body-sm);
+  }
+  .related-terms a:hover {
+    border-color: var(--color-deep-violet);
+    color: var(--color-deep-violet);
+  }
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    font-size: var(--text-body-sm);
+    color: var(--color-slate-hint);
+    margin-bottom: 2rem;
+  }
+  .breadcrumb a {
+    color: var(--color-slate-hint);
+  }
+  .breadcrumb a:hover {
+    color: var(--color-deep-violet);
+  }
+  .term-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: var(--text-body-sm);
+  }
+  .term-footer a {
+    color: var(--color-deep-violet);
   }
 </style>
