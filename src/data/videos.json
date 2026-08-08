@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "what-is-a-semantic-layer",
+    "index": 1,
+    "title": "What Is a Semantic Layer",
+    "description": "A semantic layer translates physical tables into the metrics, dimensions and relationships a business actually asks about, and the definitions run rather than sit in a wiki.",
+    "keywords": [
+      "semantic layer",
+      "metrics",
+      "data modeling",
+      "governance",
+      "lakehouse"
+    ],
+    "beats": [
+      "Tables on one side, questions on the other",
+      "One machine-readable layer in between",
+      "Definitions, plus the machinery around them",
+      "The definitions execute, they are not documentation"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/what-is-a-semantic-layer.mp4",
+    "poster": "/assets/videos/what-is-a-semantic-layer.jpg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "slug": "metrics-dimensions-and-relationships",
+    "index": 2,
+    "title": "Metrics, Dimensions, Relationships",
+    "description": "Inside a semantic model: metrics carry their own filters and time logic, dimensions are the ways you slice them, and declared relationships are what keep generated joins from double counting.",
+    "keywords": [
+      "metrics",
+      "dimensions",
+      "entities",
+      "data modeling",
+      "fan-out"
+    ],
+    "beats": [
+      "A metric is a number with its rules attached",
+      "Dimensions are the ways a metric is sliced",
+      "Declare the entities once, join them correctly forever",
+      "Undeclared joins are how totals silently inflate"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/metrics-dimensions-and-relationships.mp4",
+    "poster": "/assets/videos/metrics-dimensions-and-relationships.jpg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "slug": "governed-metrics-one-source-of-truth",
+    "index": 3,
+    "title": "Governed Metrics",
+    "description": "Metric logic scattered across tools drifts until meetings become arguments about whose number is real. A governed semantic layer makes the definition singular, reviewable and enforceable.",
+    "keywords": [
+      "governed metrics",
+      "single source of truth",
+      "data governance",
+      "metric drift",
+      "access control"
+    ],
+    "beats": [
+      "One metric name, six different answers",
+      "Logic copied forward, edited under deadline",
+      "Treat a definition like code, because it is",
+      "Governance you can audit, not hope for"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/governed-metrics-one-source-of-truth.mp4",
+    "poster": "/assets/videos/governed-metrics-one-source-of-truth.jpg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "slug": "how-a-semantic-query-resolves",
+    "index": 4,
+    "title": "How a Semantic Query Resolves",
+    "description": "Resolve, generate, optimize, enforce. Understanding those four steps is enough to read any semantic layer's architecture page, because the products differ in where the steps run, not in what they are.",
+    "keywords": [
+      "semantic layer architecture",
+      "SQL generation",
+      "query acceleration",
+      "access control",
+      "fan-out"
+    ],
+    "beats": [
+      "Turn names into a plan",
+      "Compile the plan into engine SQL",
+      "Answer from a materialization when one fits",
+      "Apply the rules before results leave"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/how-a-semantic-query-resolves.mp4",
+    "poster": "/assets/videos/how-a-semantic-query-resolves.jpg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "slug": "headless-bi-and-the-semantic-layer",
+    "index": 5,
+    "title": "Headless BI",
+    "description": "When the semantic model lives inside one BI tool, only that tool is governed. Headless BI runs the model as a service so dashboards, notebooks, apps and agents all resolve against the same definitions.",
+    "keywords": [
+      "headless BI",
+      "semantic layer",
+      "metrics API",
+      "MCP",
+      "BI tools"
+    ],
+    "beats": [
+      "Semantics trapped inside one tool",
+      "The model becomes a service, not a feature",
+      "Whatever the consumer already speaks",
+      "Swap the front end, keep the meaning"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/headless-bi-and-the-semantic-layer.mp4",
+    "poster": "/assets/videos/headless-bi-and-the-semantic-layer.jpg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "slug": "semantic-layers-and-ai-agents",
+    "index": 6,
+    "title": "Semantic Layers and AI Agents",
+    "description": "MCP can connect an agent to your data in an afternoon, and what it finds on the other side decides whether the answer is trustworthy. Raw schemas produce confident guesses; governed metrics produce endorsed numbers.",
+    "keywords": [
+      "AI agents",
+      "MCP",
+      "text-to-SQL",
+      "semantic layer",
+      "agentic analytics"
+    ],
+    "beats": [
+      "The protocol connects, it does not explain",
+      "What the agent finds decides the answer",
+      "Grounding is what closes the accuracy gap",
+      "Your semantic layer is a knowledge interface"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/semantic-layers-and-ai-agents.mp4",
+    "poster": "/assets/videos/semantic-layers-and-ai-agents.jpg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "slug": "apache-ossie-open-semantic-interchange",
+    "index": 7,
+    "title": "Apache Ossie",
+    "description": "Apache Ossie, incubating at the ASF and formerly Open Semantic Interchange, is a vendor-neutral specification for metrics, dimensions and relationships, so semantic definitions can move between BI, analytics and AI platforms.",
+    "keywords": [
+      "Apache Ossie",
+      "Open Semantic Interchange",
+      "open standards",
+      "semantic layer",
+      "portability"
+    ],
+    "beats": [
+      "Lock-in has been unwinding one layer at a time",
+      "Years of business logic in a private format",
+      "A neutral spec for metrics and dimensions",
+      "From an industry initiative to an Apache project"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/apache-ossie-open-semantic-interchange.mp4",
+    "poster": "/assets/videos/apache-ossie-open-semantic-interchange.jpg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "slug": "the-semantic-lakehouse",
+    "index": 8,
+    "title": "The Semantic Lakehouse",
+    "description": "The lakehouse opened up files, tables and catalogs. Putting the semantic layer next to that open data is what turns storage everyone can read into answers everyone can trust.",
+    "keywords": [
+      "semantic lakehouse",
+      "Apache Iceberg",
+      "data lakehouse",
+      "query federation",
+      "semantic layer"
+    ],
+    "beats": [
+      "The lakehouse opened the stack underneath",
+      "An open table is still not a definition",
+      "Put the semantics next to the data",
+      "Open underneath, governed on top"
+    ],
+    "seconds": 44,
+    "iso8601": "PT44S",
+    "src": "/assets/videos/the-semantic-lakehouse.mp4",
+    "poster": "/assets/videos/the-semantic-lakehouse.jpg",
+    "width": 1920,
+    "height": 1080
+  }
+]
