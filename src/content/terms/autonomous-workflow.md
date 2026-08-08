@@ -16,4 +16,4 @@ Autonomous workflows replace static, hard-coded scripts with dynamic agent plann
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, workflows often involve complex data transformation, quality checks, and reporting. Autonomous workflows allow agents to manage these operational tasks independently. For example, an agent can detect a partition performance drop, trigger a compaction job on an Iceberg table, and verify the query acceleration results. Dremio enables this autonomy by exposing REST APIs and unified SQL views, allowing agents to execute and monitor operations seamlessly.
+In a data lakehouse, workflows often involve complex data transformation, quality checks, and reporting. Autonomous workflows allow agents to manage these operational tasks independently. For example, an agent can detect a partition performance drop, trigger a compaction job on an Iceberg table, and verify the query acceleration results. Dremio enables this autonomy by exposing REST APIs and unified SQL views, allowing agents to execute and monitor operations directly.

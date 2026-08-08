@@ -16,4 +16,4 @@ When a write transaction commits, Iceberg generates a new snapshot mapped to a m
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, manifest lists enable transaction isolation and time travel capabilities. Because each manifest list represents a complete snapshot, query engines can access previous table states. If an autonomous agent needs to query historical data or run transaction-consistent audits, it leverages these snapshot states. Dremio queries the manifest list to identify the active files for any given snapshot, executing queries without locking the table.
+In a data lakehouse, manifest lists enable transaction isolation and time travel capabilities. Because each manifest list represents a complete snapshot, query engines can access previous table states. If an autonomous agent needs to query historical data or run transaction-consistent audits, it uses these snapshot states. Dremio queries the manifest list to identify the active files for any given snapshot, executing queries without locking the table.

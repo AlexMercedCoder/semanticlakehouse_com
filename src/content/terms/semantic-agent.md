@@ -1,10 +1,10 @@
 ---
 title: "Semantic Agent"
-description: "An AI agent that leverages a semantic layer to understand database business definitions and schemas."
+description: "An AI agent that uses a semantic layer to understand database business definitions and schemas."
 related: ["ai-agent", "semantic-layer", "agentic-rag"]
 ---
 
-**Semantic Agent** is an autonomous AI agent designed to interact with databases by leveraging a semantic layer rather than raw physical schemas. It uses centralized business metrics and relationships to construct queries and reason about data.
+**Semantic Agent** is an autonomous AI agent designed to interact with databases through a semantic layer rather than raw physical schemas. It draws on centralized business metrics and relationships to construct queries and reason about data.
 
 ## How it Works
 

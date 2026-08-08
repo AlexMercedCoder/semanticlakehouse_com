@@ -16,4 +16,4 @@ Unlike linear sorting which treats the first sort key with higher priority, Z-or
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, query workloads are diverse, and query patterns can filter on multiple different columns. Z-ordering Apache Iceberg tables enables optimal file skipping for these varying queries. When an autonomous agent constructs SQL filters dynamically, Z-ordering ensures that the execution engine is not forced to run full scans. Dremio leverages Z-ordered Iceberg tables, planning and running multi-dimensional range filters at sub-second speeds.
+In a data lakehouse, query workloads are diverse, and query patterns can filter on multiple different columns. Z-ordering Apache Iceberg tables enables optimal file skipping for these varying queries. When an autonomous agent constructs SQL filters dynamically, Z-ordering ensures that the execution engine is not forced to run full scans. Dremio uses Z-ordered Iceberg tables, planning and running multi-dimensional range filters at sub-second speeds.

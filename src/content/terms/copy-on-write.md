@@ -16,4 +16,4 @@ CoW prioritizes query read performance by ensuring that data files do not requir
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, CoW is ideal for tables with high read frequency and low update volume. Because CoW tables require no dynamic merging during queries, they offer the lowest query latency, which is optimal for AI agents executing analytical tasks. Dremio leverages CoW tables in Apache Iceberg to execute high-speed scans and aggregations. For agents that require rapid responses, utilizing CoW formats on read-heavy datasets guarantees that Dremio can return results with minimum overhead.
+In a data lakehouse, CoW is ideal for tables with high read frequency and low update volume. Because CoW tables require no dynamic merging during queries, they offer the lowest query latency, which is optimal for AI agents executing analytical tasks. Dremio uses CoW tables in Apache Iceberg to execute high-speed scans and aggregations. For agents that require rapid responses, utilizing CoW formats on read-heavy datasets guarantees that Dremio can return results with minimum overhead.

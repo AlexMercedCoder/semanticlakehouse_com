@@ -10,7 +10,7 @@ related: ["metrics-store", "governed-metric", "calculation-group"]
 
 Time-relative metrics are computed dynamically at query execution time. The query engine uses window functions or relative offset logic to compare data from a selected period with historical periods, keeping calculations accurate as new transactions arrive.
 
-- **Window Functions**: Leverages SQL analytic features to shift or accumulate values over partition boundaries.
+- **Window Functions**: Uses SQL analytic features to shift or accumulate values over partition boundaries.
 - **Dynamic Offsets**: Resolves time ranges relative to a variable anchor date, keeping metrics flexible for filters.
 
 ## Lakehouse & Agentic Relevance

@@ -16,4 +16,4 @@ Optimizers analyze SQL statements and choose physical operations based on cost s
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, data is distributed across diverse cloud object storage buckets and formats. Without query plan optimization, querying this data would result in slow scans and high compute costs. For autonomous agents that run queries dynamically, query optimization prevents system overloads. Dremio utilizes advanced query plan optimization, including pushing down operations directly to source databases and leveraging pre-computed Reflections, returning results to analytical agents at sub-second speeds.
+In a data lakehouse, data is distributed across diverse cloud object storage buckets and formats. Without query plan optimization, querying this data would result in slow scans and high compute costs. For autonomous agents that run queries dynamically, query optimization prevents system overloads. Dremio utilizes advanced query plan optimization, including pushing down operations directly to source databases and using pre-computed Reflections, returning results to analytical agents at sub-second speeds.

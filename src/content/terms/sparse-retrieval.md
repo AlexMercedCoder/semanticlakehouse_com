@@ -4,7 +4,7 @@ description: "Retrieving documents using exact match indices like term frequenci
 related: ["dense-retrieval", "hybrid-search", "vector-indexing"]
 ---
 
-**Sparse Retrieval** is an information retrieval paradigm that matches queries and documents based on exact keyword overlap. It structures data as high-dimensional, sparse vectors where each dimension corresponds to a specific term in the vocabulary.
+**Sparse Retrieval** is an information retrieval approach that matches queries and documents based on exact keyword overlap. It structures data as high-dimensional, sparse vectors where each dimension corresponds to a specific term in the vocabulary.
 
 ## How it Works
 

@@ -16,4 +16,4 @@ MoR optimizes write performance by deferring the merge overhead to the read phas
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, low-latency ingestion is vital for real-time applications. MoR is the preferred write strategy for high-frequency streaming data because it reduces write amplification. However, resolving merges at query time increases read latency. For AI agents requiring fast responses, this overhead can be a bottleneck. Dremio offsets this penalty by leveraging its high-performance execution engine and pre-computed Arrow cache, accelerating the dynamic resolution of MoR tables for downstream analytical queries.
+In a data lakehouse, low-latency ingestion is vital for real-time applications. MoR is the preferred write strategy for high-frequency streaming data because it reduces write amplification. However, resolving merges at query time increases read latency. For AI agents requiring fast responses, this overhead can be a bottleneck. Dremio offsets this penalty by using its high-performance execution engine and pre-computed Arrow cache, accelerating the dynamic resolution of MoR tables for downstream analytical queries.

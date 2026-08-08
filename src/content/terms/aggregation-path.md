@@ -15,4 +15,4 @@ An aggregation path directs the analytical engine on how to compute metrics acro
 
 ## Lakehouse & Agentic Relevance
 
-In data lakehouses, pre-defining aggregation paths prevents calculations from breaking when downstream tools query raw cloud storage files. For AI agents, explicit aggregation paths act as instructions for resolving metrics. Rather than guessing how to aggregate complex percentages or compound metrics, the agent queries the predefined path. Dremio leverages pre-calculated paths within its Reflections engine to accelerate complex aggregate queries, providing instant responses on massive datasets.
+In data lakehouses, pre-defining aggregation paths prevents calculations from breaking when downstream tools query raw cloud storage files. For AI agents, explicit aggregation paths act as instructions for resolving metrics. Rather than guessing how to aggregate complex percentages or compound metrics, the agent queries the predefined path. Dremio uses pre-calculated paths within its Reflections engine to accelerate complex aggregate queries, providing instant responses on massive datasets.

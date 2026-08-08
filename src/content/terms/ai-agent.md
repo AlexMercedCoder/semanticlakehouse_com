@@ -4,7 +4,7 @@ description: "A software component that uses an LLM to reason, select tools, and
 related: ["llm-orchestration", "react-pattern", "tool-call"]
 ---
 
-**AI Agent** is an autonomous software component that leverages large language models (LLMs) to make decisions, execute workflows, and interact with external systems. It uses reasoning loops to plan and achieve goals without step-by-step human programming.
+**AI Agent** is an autonomous software component that runs on a large language model (LLM) to make decisions, execute workflows, and interact with external systems. It uses reasoning loops to plan and achieve goals without step-by-step human programming.
 
 ## How it Works
 

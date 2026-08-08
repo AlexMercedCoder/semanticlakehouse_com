@@ -4,7 +4,7 @@ description: "Querying and visualizing business data using conversational natura
 related: ["agentic-analytics", "autonomous-query-agent", "semantic-layer"]
 ---
 
-**Conversational BI** (Business Intelligence) is an analytical interface paradigm that enables users to query databases, construct visualizations, and generate analytical reports using conversational natural language rather than drag-and-drop tools or raw SQL.
+**Conversational BI** (Business Intelligence) is an analytical interface that lets users to query databases, construct visualizations, and generate analytical reports using conversational natural language rather than drag-and-drop tools or raw SQL.
 
 ## How it Works
 

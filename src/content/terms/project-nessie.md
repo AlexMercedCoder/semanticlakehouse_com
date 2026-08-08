@@ -4,7 +4,7 @@ description: "A transactional catalog for data lakes offering Git-like version c
 related: ["apache-polaris", "iceberg-catalog", "apache-iceberg"]
 ---
 
-**Project Nessie** is an open-source, transactional catalog designed for data lakes. It brings Git-like version control paradigms (such as branches, commits, merges, and tags) to database tables, enabling multi-table transactions and versioning.
+**Project Nessie** is an open-source, transactional catalog designed for data lakes. It brings Git-like version control concepts (such as branches, commits, merges, and tags) to database tables, enabling multi-table transactions and versioning.
 
 ## How it Works
 

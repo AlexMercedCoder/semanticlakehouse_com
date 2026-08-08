@@ -16,4 +16,4 @@ Parquet optimizes data layout for analytical engines that typically query specif
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, Parquet is the standard file format used by transactional engines like Apache Iceberg. For analytical agents running SQL, querying Parquet files directly reduces input-output (I/O) bottlenecks. Dremio leverages Parquet's column statistics and layout, reading only the necessary data blocks to accelerate queries. This performance boost enables real-time responses for conversational business intelligence applications and agents.
+In a data lakehouse, Parquet is the standard file format used by transactional engines like Apache Iceberg. For analytical agents running SQL, querying Parquet files directly reduces input-output (I/O) bottlenecks. Dremio uses Parquet's column statistics and layout, reading only the necessary data blocks to accelerate queries. This performance boost enables real-time responses for conversational business intelligence applications and agents.

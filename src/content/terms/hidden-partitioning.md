@@ -16,4 +16,4 @@ Traditional layouts require creating explicit partition columns (like `event_dat
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, managing partitions manually leads to query complexity and frequent errors. For autonomous agents generating SQL, hidden partitioning simplifies query generation. The agent can query columns naturally without knowing the table's physical partition strategy. Dremio leverages hidden partitioning in Iceberg tables to accelerate query execution transparently, providing agents with quick data retrieval without requiring complex partitioning clauses in the generated SQL.
+In a data lakehouse, managing partitions manually leads to query complexity and frequent errors. For autonomous agents generating SQL, hidden partitioning simplifies query generation. The agent can query columns naturally without knowing the table's physical partition strategy. Dremio uses hidden partitioning in Iceberg tables to accelerate query execution transparently, providing agents with quick data retrieval without requiring complex partitioning clauses in the generated SQL.

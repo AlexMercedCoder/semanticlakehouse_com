@@ -15,4 +15,4 @@ A metadata registry gathers schema definitions, table statistics, and access rul
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse architecture, a metadata registry is essential to keep track of tables, views, and access rules across storage platforms. For AI agents, a metadata registry acts as a map of the data landscape. When given a natural language query, the agent queries the registry to locate the correct tables, columns, and metric definitions. Dremio integrates with open lakehouse metadata registries like Apache Polaris and Project Nessie, providing unified access control and transactional catalogs for analytical workflows.
+In a data lakehouse architecture, a metadata registry is essential to keep track of tables, views, and access rules across storage platforms. For AI agents, a metadata registry acts as a map of the available data. When given a natural language query, the agent queries the registry to locate the correct tables, columns, and metric definitions. Dremio integrates with open lakehouse metadata registries like Apache Polaris and Project Nessie, providing unified access control and transactional catalogs for analytical workflows.

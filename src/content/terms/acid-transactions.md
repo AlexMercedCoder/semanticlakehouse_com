@@ -17,4 +17,4 @@ ACID properties enforce consistency at the engine and storage levels during mult
 
 ## Lakehouse & Agentic Relevance
 
-In legacy data lakes, the absence of ACID properties meant that concurrent reads and writes could yield corrupt or partial data. Open table formats like Apache Iceberg bring ACID compliance directly to cloud object storage. When autonomous agents execute analytic workflows, they require consistent data to avoid generating incorrect metrics. Dremio leverages the ACID guarantees of Iceberg and other formats, ensuring that agents and business intelligence tools read consistent snapshot states during concurrent updates.
+In legacy data lakes, the absence of ACID properties meant that concurrent reads and writes could yield corrupt or partial data. Open table formats like Apache Iceberg bring ACID compliance directly to cloud object storage. When autonomous agents execute analytic workflows, they require consistent data to avoid generating incorrect metrics. Dremio uses the ACID guarantees of Iceberg and other formats, ensuring that agents and business intelligence tools read consistent snapshot states during concurrent updates.

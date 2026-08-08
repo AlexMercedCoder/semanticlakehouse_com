@@ -15,4 +15,4 @@ Dimension tables are joined to fact tables using primary key to foreign key rela
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse architecture, dimension tables are frequently stored as Apache Iceberg tables to take advantage of schema evolution and file pruning. For AI agents, dimension tables represent the structural options available for query filtering. Properly documented dimension schemas tell the agent how to structure WHERE and GROUP BY clauses during conversational analysis. Dremio accelerates dimension table queries by leveraging columnar memory formatting, enabling rapid joins across large fact tables on object storage.
+In a data lakehouse architecture, dimension tables are frequently stored as Apache Iceberg tables to take advantage of schema evolution and file pruning. For AI agents, dimension tables represent the structural options available for query filtering. Properly documented dimension schemas tell the agent how to structure WHERE and GROUP BY clauses during conversational analysis. Dremio accelerates dimension table queries by using columnar memory formatting, enabling rapid joins across large fact tables on object storage.

@@ -15,4 +15,4 @@ When an application queries a logical view, the query parser retrieves the view'
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, logical views provide security and abstraction, letting teams mask sensitive columns or filter out records before data reaches downstream users. For AI agents, querying logical views is safer and faster than navigating raw physical tables. The view pre-packages complex relational joins, allowing the agent to write simple queries instead of reconstructing database schemas. Dremio leverages logical views (as Virtual Datasets) to virtualize data lake storage, allowing sub-second SQL access.
+In a data lakehouse, logical views provide security and abstraction, letting teams mask sensitive columns or filter out records before data reaches downstream users. For AI agents, querying logical views is safer and faster than navigating raw physical tables. The view pre-packages complex relational joins, allowing the agent to write simple queries instead of reconstructing database schemas. Dremio uses logical views (as Virtual Datasets) to virtualize data lake storage, allowing sub-second SQL access.

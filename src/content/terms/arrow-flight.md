@@ -4,7 +4,7 @@ description: "A high-performance protocol based on Apache Arrow designed for hig
 related: ["dremio", "dremio-reflections", "query-virtualization"]
 ---
 
-**Arrow Flight** is a high-performance, open-source data transfer framework designed for fast, parallelized transport of large datasets. It leverages Apache Arrow's columnar in-memory format to bypass serialization bottlenecks.
+**Arrow Flight** is a high-performance, open-source data transfer framework designed for fast, parallelized transport of large datasets. It uses Apache Arrow's columnar in-memory format to bypass serialization bottlenecks.
 
 ## How it Works
 

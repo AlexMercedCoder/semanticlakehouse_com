@@ -16,4 +16,4 @@ Delta Lake abstracts raw storage directories into transactional tables by keepin
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, organizations often store data in multiple formats, including Delta Lake and Apache Iceberg. Autonomous agents querying the lakehouse must access these tables seamlessly without dealing with format compatibility issues. Dremio handles this by virtualizing both Delta Lake and Apache Iceberg tables. Dremio enables users and agents to query Delta Lake files using standard SQL at high speeds, removing the need for manual data conversion and consolidating the lakehouse query layer.
+In a data lakehouse, organizations often store data in multiple formats, including Delta Lake and Apache Iceberg. Autonomous agents querying the lakehouse must read these tables without handling format compatibility themselves. Dremio handles this by virtualizing both Delta Lake and Apache Iceberg tables. Dremio enables users and agents to query Delta Lake files using standard SQL at high speeds, removing the need for manual data conversion and consolidating the lakehouse query layer.

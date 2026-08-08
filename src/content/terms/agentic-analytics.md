@@ -4,7 +4,7 @@ description: "The application of autonomous AI agents to perform complex data an
 related: ["semantic-layer", "ai-agent", "context-layer"]
 ---
 
-**Agentic Analytics** is a data analysis paradigm where autonomous AI agents execute analytical tasks, formulate queries, and trigger workflows based on data findings. It shifts the role of AI from simple conversational search to independent execution and decision-making.
+**Agentic Analytics** is an approach to data analysis where autonomous AI agents execute analytical tasks, formulate queries, and trigger workflows based on data findings. It shifts the role of AI from simple conversational search to independent execution and decision-making.
 
 ## How it Works
 

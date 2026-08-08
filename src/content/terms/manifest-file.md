@@ -16,4 +16,4 @@ Iceberg avoids directory listing scans by maintaining explicit lists of physical
 
 ## Lakehouse & Agentic Relevance
 
-In a data lakehouse, manifest files are crucial for optimizing query performance at scale. When an AI agent generates a query filtering on specific column values, Dremio reads the manifest files first. By analyzing the column statistics within the manifest files, Dremio skips reading irrelevant files from object storage. This reduces input-output (I/O) overhead and accelerates query execution, providing agents with rapid responses.
+In a data lakehouse, manifest files are central to optimizing query performance at scale. When an AI agent generates a query filtering on specific column values, Dremio reads the manifest files first. By analyzing the column statistics within the manifest files, Dremio skips reading irrelevant files from object storage. This reduces input-output (I/O) overhead and accelerates query execution, providing agents with rapid responses.
