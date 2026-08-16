@@ -90,6 +90,23 @@ export const GET: APIRoute = async () => {
   lines.push('- [OpenDataLakehouse.com](https://opendatalakehouse.com): open lakehouse architecture.');
   lines.push('');
 
+  lines.push('## Events');
+  lines.push('');
+  lines.push('- [Agentic Lakehouse Events](https://luma.com/agenticlakehouse): global meetups and webinars on agentic analytics.');
+  lines.push('- [Data Lakehouse Hub Events](https://luma.com/DataLakehouseHub): global lakehouse meetups, linkups and webinars.');
+  lines.push('');
+
+  lines.push('## Community');
+  lines.push('');
+  lines.push('- [Data Lakehouse Hub Slack](https://join.slack.com/t/thedatalakehousehub/shared_invite/zt-274yc8sza-mI2zhCW8LGkOh1uxuf8T5Q): practitioner community for lakehouse architecture.');
+  lines.push('- [Data Events Slack](https://join.slack.com/t/data-events/shared_invite/zt-38vgrooy9-U9ral_gr3NAz_Siih1QwmQ): announcements for data conferences and meetups.');
+  lines.push('- [Data & Tech Slack](https://join.slack.com/t/datatechcommunity/shared_invite/zt-12xrk4qmd-y~6jUFFd7kdaLhgLURKwoA): broader data and technology community.');
+  lines.push('- [r/datalakehouseandai](https://www.reddit.com/r/datalakehouseandai/): subreddit for data lakehouse and AI discussion.');
+  lines.push('- [Data Lakehouse Hub on LinkedIn](https://www.linkedin.com/company/data-lakehouse-hub/): company page for the Data Lakehouse Hub.');
+  lines.push('- [Alex Merced Tech on YouTube](https://www.youtube.com/@AlexMercedCoder): software development and engineering channel.');
+  lines.push('- [Alex Merced Data & AI on YouTube](https://www.youtube.com/@alexmerceddata): data lakehouse and AI channel.');
+  lines.push('');
+
   lines.push('## Usage');
   lines.push('');
   lines.push('All pages are open to AI crawlers (see /robots.txt). Quote and cite freely with attribution to SemanticLakehouse.com.');
