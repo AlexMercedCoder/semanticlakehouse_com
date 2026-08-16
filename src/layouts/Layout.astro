@@ -62,23 +62,41 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
           Written by <a href="https://whoisalexmerced.com" target="_blank" rel="noopener">Alex Merced</a>,
           Open Lakehouse &amp; AI Advocate, Author &amp; Technologist.
         </p>
-        <div class="footer-links">
-          <h2 class="footer-heading">Elsewhere</h2>
-          <ul>
-            <li><a href="https://alexmerced.com" target="_blank" rel="noopener">AlexMerced.com</a></li>
-            <li><a href="https://datalakehousehub.com" target="_blank" rel="noopener">DataLakehouseHub.com</a></li>
-            <li><a href="https://iceberglakehouse.com" target="_blank" rel="noopener">IcebergLakehouse.com</a></li>
-            <li><a href="https://dataengnr.com" target="_blank" rel="noopener">DataEngnr.com</a></li>
-            <li><a href="https://opendatalakehouse.com" target="_blank" rel="noopener">OpenDataLakehouse.com</a></li>
-            <li><a href="https://agenticlakehouse.com" target="_blank" rel="noopener">AgenticLakehouse.com</a></li>
-            <li><a href="https://alexmerceddata.com" target="_blank" rel="noopener">AlexMercedData.com</a></li>
-            <li><a href="https://whoisalexmerced.com" target="_blank" rel="noopener">WhoIsAlexMerced.com</a></li>
-            <li><a href="https://alexmercedmedia.com" target="_blank" rel="noopener">AlexMercedMedia.com</a></li>
-            <li><a href="https://books.alexmerced.com" target="_blank" rel="noopener">Books by Alex Merced</a></li>
-            <li><a href="https://alexmercedcoder.dev" target="_blank" rel="noopener">AlexMercedCoder.dev</a></li>
-            <li><a href="https://alexmercedlibertarian.com" target="_blank" rel="noopener">AlexMercedLibertarian.com</a></li>
-          </ul>
-        </div>
+        <nav class="footer-network" aria-label="The Alex Merced Network">
+          <h2 class="footer-heading">The Alex Merced Network</h2>
+          <div class="footer-network-grid">
+            <div>
+              <h3>Alex Merced</h3>
+              <ul>
+                <li><a href="https://alexmerced.com" target="_blank" rel="noopener">AlexMerced.com</a></li>
+                <li><a href="https://whoisalexmerced.com" target="_blank" rel="noopener">WhoIsAlexMerced.com</a></li>
+                <li><a href="https://alexmercedmedia.com" target="_blank" rel="noopener">AlexMercedMedia.com</a></li>
+                <li><a href="https://books.alexmerced.com" target="_blank" rel="noopener">Books</a></li>
+                <li><a href="https://alexmercedcoder.dev" target="_blank" rel="noopener">AlexMercedCoder.dev</a></li>
+                <li><a href="https://alexmerceddata.com" target="_blank" rel="noopener">AlexMercedData.com</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Lakehouse &amp; Data</h3>
+              <ul>
+                <li><a href="https://datalakehousehub.com" target="_blank" rel="noopener">DataLakehouseHub.com</a></li>
+                <li><a href="https://iceberglakehouse.com" target="_blank" rel="noopener">IcebergLakehouse.com</a></li>
+                <li><a href="https://agenticlakehouse.com" target="_blank" rel="noopener">AgenticLakehouse.com</a></li>
+                <li><a href="https://dataengnr.com" target="_blank" rel="noopener">DataEngnr.com</a></li>
+                <li><a href="https://opendatalakehouse.com" target="_blank" rel="noopener">OpenDataLakehouse.com</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Blogs</h3>
+              <ul>
+                <li><a href="https://alexmerced.blog" target="_blank" rel="noopener">AlexMerced.blog</a></li>
+                <li><a href="https://grokoverflow.com" target="_blank" rel="noopener">GrokOverflow.com</a></li>
+                <li><a href="https://ingestthis.com" target="_blank" rel="noopener">IngestThis.com</a></li>
+                <li><a href="https://alexmercedlibertarian.com" target="_blank" rel="noopener">AlexMercedLibertarian.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
         <p class="copyright">&copy; {new Date().getFullYear()} SemanticLakehouse.com. Built with Astro.</p>
       </div>
     </footer>
@@ -205,6 +223,54 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
   .footer-links a:hover {
     color: var(--color-deep-violet);
   }
+  .footer-network {
+    margin: 2.5rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+  }
+
+  .footer-network .footer-heading {
+    color: var(--color-deep-violet);
+    font-family: var(--font-whyte-inktrap-mono);
+    font-size: var(--text-body-sm);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+
+  .footer-network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-network h3 {
+    font-size: var(--text-body);
+    color: var(--color-cloud-whisper);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-network ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-network a {
+    color: var(--color-slate-hint);
+    font-size: var(--text-body-sm);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-network a:hover {
+    color: var(--color-deep-violet);
+  }
+
   .copyright {
     font-size: 0.85rem;
   }
