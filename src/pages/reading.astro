@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { books } from '../utils/data';
+import bookData from '../data/books.json';
+
+// Generated from the entity layer; see alexmercedcom/scripts/build-network-booklists.mjs.
+const { books, count, totalInCatalog, catalog, intro } = bookData;
 ---
 
 <Layout
@@ -9,23 +12,26 @@ import { books } from '../utils/data';
 >
   <div class="container page-header">
     <h1>Reading list</h1>
-    <p>Books on the lakehouse, Apache Iceberg, semantic layers and AI, written by Alex Merced. Two of them come from O'Reilly and Manning; the rest cover the ground around them.</p>
+    <p>{intro}</p>
+    <p class="reading-meta">
+      {count} of {totalInCatalog} titles.
+      <a href={catalog} target="_blank" rel="noopener noreferrer">See the complete catalog</a>
+    </p>
   </div>
 
   <div class="container books-grid">
-    {books.filter(b => b.category === 'tech').map(book => (
-      <a href={book.amazon_url} target="_blank" rel="noopener noreferrer" class="card book-card">
-        <div class="cover-wrapper">
-          <img 
-            src={book.cover_image_url} 
-            alt={`Cover of ${book.title}`} 
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <h2>{book.title}</h2>
-        <span class="read-more">Learn More &rarr;</span>
-      </a>
+    {books.map(book => (
+      <article class="card book-card">
+        <a class="cover-wrapper" href={book.canonicalPage} target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src={book.cover} alt="" loading="lazy" decoding="async" />
+        </a>
+        <h2><a href={book.canonicalPage} target="_blank" rel="noopener noreferrer">{book.title}</a></h2>
+        {book.publisher && <p class="book-publisher">{book.publisher}</p>}
+        <p class="book-links">
+          <a href={book.canonicalPage} target="_blank" rel="noopener noreferrer">Details</a>
+          <a href={book.amazon} target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+        </p>
+      </article>
     ))}
   </div>
 </Layout>
@@ -34,6 +40,27 @@ import { books } from '../utils/data';
   .page-header {
     text-align: center;
     padding: 4rem 0 2rem;
+  }
+  .reading-meta {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    opacity: 0.8;
+  }
+  .book-publisher {
+    margin: 0.25rem 0 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .book-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.75rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 600;
   }
   .books-grid {
     display: grid;
