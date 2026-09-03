@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Parser from 'rss-parser';
 import { books } from '../utils/data';
 import videos from '../data/videos.json';
+import HomeFilmShowcase from '../components/HomeFilmShowcase.astro';
 
 // Fetch latest 3 blogs
 let latestBlogs: { title: string, url: string, date: string }[] = [];
@@ -162,6 +163,14 @@ const faqJsonLd = {
       </div>
     </div>
   </section>
+
+  <HomeFilmShowcase eyebrow="Featured music video" heading="From Iceberg tables to shared meaning" intro="See how an open lakehouse creates the governed, portable foundation that semantic layers and AI systems can trust." films={[{
+    title: 'The Iceberg Open Lakehouse',
+    description: 'A beat-synced tour from open storage and table metadata to catalogs, engines, governance, and semantics.',
+    src: 'https://opendatalakehouse.com/the-iceberg-open-lakehouse.mp4',
+    poster: 'https://opendatalakehouse.com/the-iceberg-open-lakehouse-poster.jpg',
+    runtime: '7:50',
+  }]} />
 
   <section id="concepts" class="container concepts-section">
     <h2 class="section-heading">Four ideas this site keeps coming back to</h2>
