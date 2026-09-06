@@ -76,6 +76,7 @@ export const GET: APIRoute = async () => {
   lines.push('- [WhoIsAlexMerced.com](https://whoisalexmerced.com): about Alex Merced.');
   lines.push('- [AlexMerced.com](https://alexmerced.com): hub and links.');
   lines.push('- [Books by Alex Merced](https://books.alexmerced.com): O\'Reilly and Manning titles.');
+  lines.push('- [Branding.AlexMerced.com](https://branding.alexmerced.com): personal branding & developer relations.');
   lines.push('- [LinkedIn](https://www.linkedin.com/in/alexmerced)');
   lines.push('- [@alexmercedcoder on X](https://twitter.com/alexmercedcoder)');
   lines.push('- [GitHub](https://github.com/AlexMercedCoder)');

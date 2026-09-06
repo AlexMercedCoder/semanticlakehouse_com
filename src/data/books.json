@@ -3,7 +3,7 @@
   "source": "https://alexmerced.com/entity/books.json",
   "catalog": "https://books.alexmerced.com/",
   "intro": "Books on the semantic layer and what sits either side of it: the lakehouse underneath, and the agents and AI systems that depend on shared meaning.",
-  "totalInCatalog": 65,
+  "totalInCatalog": 66,
   "count": 32,
   "books": [
     {
