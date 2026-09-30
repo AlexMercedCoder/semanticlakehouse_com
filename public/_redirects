@@ -1,0 +1,6 @@
+# Sitemap: Astro emits /sitemap-index.xml; /sitemap.xml used to fall through to the 404 page.
+/sitemap.xml  /sitemap-index.xml  301!
+
+# P4.4: agentic analytics is owned by agenticanalyticsnow.com.
+/knowledge-base/agentic-analytics/  https://agenticanalyticsnow.com/knowledge-base/what-is-agentic-analytics/  301!
+/knowledge-base/agentic-analytics   https://agenticanalyticsnow.com/knowledge-base/what-is-agentic-analytics/  301!
