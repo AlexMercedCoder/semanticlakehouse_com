@@ -11,6 +11,15 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+
+// Entries that moved to another site in the network. Related-term links to these
+// go straight to the new home instead of through a redirect.
+const moved: Record<string, { href: string; label: string }> = {
+  'agentic-analytics': {
+    href: 'https://agenticanalyticsnow.com/knowledge-base/what-is-agentic-analytics/',
+    label: 'Agentic Analytics (AgenticAnalyticsNow.com)',
+  },
+};
 const { Content } = await render(entry);
 
 const url = `https://semanticlakehouse.com/knowledge-base/${entry.id}/`;
@@ -86,8 +95,9 @@ const termJsonLd = {
               .split('-')
               .map(word => word.charAt(0).toUpperCase() + word.slice(1))
               .join(' ');
+            const target = moved[rel];
             return (
-              <li><a href={`/knowledge-base/${rel}`}>{displayTitle}</a></li>
+              <li><a href={target ? target.href : `/knowledge-base/${rel}`}>{target ? target.label : displayTitle}</a></li>
             );
           })}
         </ul>
