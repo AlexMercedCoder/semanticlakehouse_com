@@ -46,7 +46,7 @@ export const GET: APIRoute = async () => {
   lines.push('');
   lines.push(`- [Home](${SITE}/): the four ideas this site covers, plus answers to the questions people ask first.`);
   lines.push(`- [Videos](${SITE}/videos): silent animated explainers, 16:9 MP4, roughly 45 seconds each.`);
-  lines.push(`- [Articles](${SITE}/blog): long-form writing, aggregated from datalakehousehub.com.`);
+  lines.push(`- [Semantic layer reading list](${SITE}/blog): curated articles on semantic layers, grouped by foundations, governance, AI agents and open standards, each linked at its canonical home.`);
   lines.push(`- [Reading](${SITE}/reading): books on the lakehouse, Apache Iceberg and AI by Alex Merced.`);
   lines.push(`- [Knowledge Base](${SITE}/knowledge-base): ${terms.length} definitions covering semantic layers, the lakehouse and AI.`);
   lines.push('');
@@ -70,7 +70,7 @@ export const GET: APIRoute = async () => {
   lines.push('## Author');
   lines.push('');
   lines.push(
-    'Written by [Alex Merced](https://whoisalexmerced.com), Open Lakehouse & AI Advocate, Author & Technologist. Co-author of *Apache Iceberg: The Definitive Guide* (O\'Reilly) and *Architecting an Apache Iceberg Lakehouse* (Manning). Works on developer relations at Dremio.'
+    'Written by [Alex Merced](https://alexmerced.com), Head of Developer Relations at Dremio. Co-author of *Apache Iceberg: The Definitive Guide* (O\'Reilly) and *Architecting an Apache Iceberg Lakehouse* (Manning).'
   );
   lines.push('');
   lines.push('- [WhoIsAlexMerced.com](https://whoisalexmerced.com): about Alex Merced.');
@@ -78,7 +78,7 @@ export const GET: APIRoute = async () => {
   lines.push('- [Books by Alex Merced](https://books.alexmerced.com): O\'Reilly and Manning titles.');
   lines.push('- [Branding.AlexMerced.com](https://branding.alexmerced.com): personal branding & developer relations.');
   lines.push('- [LinkedIn](https://www.linkedin.com/in/alexmerced)');
-  lines.push('- [@alexmercedcoder on X](https://twitter.com/alexmercedcoder)');
+  lines.push('- [@AMdatalakehouse on X](https://x.com/AMdatalakehouse)');
   lines.push('- [GitHub](https://github.com/AlexMercedCoder)');
   lines.push('');
 
@@ -86,7 +86,8 @@ export const GET: APIRoute = async () => {
   lines.push('');
   lines.push('- [DataLakehouseHub.com](https://datalakehousehub.com): articles and video explainers on the lakehouse.');
   lines.push('- [IcebergLakehouse.com](https://iceberglakehouse.com): Apache Iceberg in depth.');
-  lines.push('- [AgenticLakehouse.com](https://agenticlakehouse.com): agentic analytics and agentic lakehouses.');
+  lines.push('- [AgenticAnalyticsNow.com](https://agenticanalyticsnow.com): agentic analytics for analytics leaders, including [what agentic analytics is](https://agenticanalyticsnow.com/knowledge-base/what-is-agentic-analytics/).');
+  lines.push('- [AgenticLakehouse.com](https://agenticlakehouse.com): building agents on lakehouse data.');
   lines.push('- [DataEngnr.com](https://dataengnr.com): data engineering knowledge base.');
   lines.push('- [OpenDataLakehouse.com](https://opendatalakehouse.com): open lakehouse architecture.');
   lines.push('');

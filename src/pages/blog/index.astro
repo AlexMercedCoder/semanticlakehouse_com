@@ -1,200 +1,298 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Parser from 'rss-parser';
 
-let blogs: { title: string, url: string, date: string }[] = [];
+// A curated reading list, not a mirror. Every link points at the canonical copy of
+// the article (checked against each post's canonical field), so this page sends
+// readers and search engines to one address per article.
+type Post = { title: string; url: string; note: string };
+type Group = { id: string; title: string; intro: string; posts: Post[] };
 
-try {
-  const parser = new Parser();
-  const feed = await parser.parseURL('https://datalakehousehub.com/rss.xml');
-  blogs = feed.items
-    .filter(item => {
-      const url = item.link || '';
-      return url.startsWith('https://datalakehousehub.com/blog/') && 
-             !url.endsWith('/blog/index/') && 
-             !url.endsWith('/blog/index');
-    })
-    .map(item => ({
-      title: item.title || 'Untitled',
-      url: item.link || '#',
-      date: item.pubDate ? new Date(item.pubDate).toLocaleDateString() : 'Recent'
-    }));
-} catch (e) {
-  console.error("Failed to fetch RSS feed", e);
-}
+const groups: Group[] = [
+  {
+    id: 'foundations',
+    title: 'Start with the foundations',
+    intro: 'What a semantic layer is, what it is not, and how to build one without repeating the usual mistakes.',
+    posts: [
+      {
+        title: 'What Is a Semantic Layer? A Complete Guide',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-what-is-a-semantic-layer/',
+        note: 'What goes into a semantic layer and why self-service analytics and AI agents both depend on it.',
+      },
+      {
+        title: 'The Who, What, and Why of Semantic Layers',
+        url: 'https://iceberglakehouse.com/posts/who-what-why-semantic-layers/',
+        note: 'Who owns the layer, what it holds, and why it decides whether your numbers can be trusted.',
+      },
+      {
+        title: "Semantic Layer vs. Metrics Layer: What's the Difference?",
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-semantic-layer-vs-metrics-layer/',
+        note: 'Where the two overlap, where they differ, and when you need both.',
+      },
+      {
+        title: 'Semantic Layer vs. Data Catalog: Complementary, Not Competing',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-semantic-layer-vs-data-catalog/',
+        note: 'One defines what data means, the other inventories what exists.',
+      },
+      {
+        title: 'How to Build a Semantic Layer: A Step-by-Step Guide',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-how-to-build-semantic-layer/',
+        note: 'From picking the first metrics to views, documentation, and access policies.',
+      },
+      {
+        title: 'Semantic Layer Best Practices: 7 Mistakes to Avoid',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-semantic-layer-best-practices/',
+        note: 'A checklist of the naming, modeling, and policy mistakes that make a layer unreliable.',
+      },
+    ],
+  },
+  {
+    id: 'governance',
+    title: 'Governance and operations',
+    intro: 'Running a semantic layer day to day: access rules, documentation, and one model over data that lives in more than one place.',
+    posts: [
+      {
+        title: 'The Role of the Semantic Layer in Data Governance',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-semantic-layer-data-governance/',
+        note: 'Central definitions, row-level security, column masking, and traceability.',
+      },
+      {
+        title: 'How a Self-Documenting Semantic Layer Reduces Data Team Toil',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-self-documenting-semantic-layer/',
+        note: 'Generated descriptions and metadata propagation instead of a wiki nobody updates.',
+      },
+      {
+        title: 'Data Virtualization and the Semantic Layer: Query Without Copying',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-data-virtualization-semantic-layer/',
+        note: 'Virtual datasets and acceleration in place of pipelines that copy data around.',
+      },
+      {
+        title: 'Semantic Layer Federation: One Meaning for Data That Lives Everywhere',
+        url: 'https://iceberglakehouse.com/posts/semantic-layer-federation-multi-cloud/',
+        note: 'One set of governed metric definitions across multi-cloud data.',
+      },
+      {
+        title: 'Semantic Layer Federation: One Logical Model Over Data on Three Clouds',
+        url: 'https://iceberglakehouse.com/posts/semantic-layer-federation-three-clouds/',
+        note: 'Pushdown, egress, acceleration, and where semantic federation still breaks.',
+      },
+    ],
+  },
+  {
+    id: 'agents',
+    title: 'Semantic layers and AI agents',
+    intro: 'Why an agent pointed at raw schemas guesses, and what changes when it resolves questions through governed definitions.',
+    posts: [
+      {
+        title: 'Why Your AI Initiatives Fail Without a Semantic Layer',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-why-ai-fails-without-semantic-layer/',
+        note: 'How models write wrong SQL without business context, and how grounding fixes it.',
+      },
+      {
+        title: 'Why Semantic Layers Make Enterprise Text-to-SQL Safer',
+        url: 'https://iceberglakehouse.com/posts/2026-05-24-semantic-layers-text-to-sql/',
+        note: 'Text-to-SQL accuracy with and without a semantic layer, across several platforms.',
+      },
+      {
+        title: 'The Semantic Layer as a Translation Engine: Bridging Natural Language and SQL',
+        url: 'https://datalakehousehub.com/blog/semantic-layer-translation-engine/',
+        note: 'How metric definitions and documentation turn business language into correct SQL.',
+      },
+      {
+        title: 'Composable Semantic Layers for Analytical Agents',
+        url: 'https://datalakehousehub.com/blog/beyond-metrics-lists-composable-semantic-layers-agents/',
+        note: 'Why agents need business logic that survives multi-step analysis, not just a list of metric names.',
+      },
+      {
+        title: 'The Metric Contract Mandate: Standardizing Semantic Layers Before AI Agent Access',
+        url: 'https://iceberglakehouse.com/posts/metric-contract-mandate-semantic-layers-ai-agent-access/',
+        note: 'What to standardize before you let an agent query your metrics.',
+      },
+      {
+        title: 'Metric Contracts as the Interface AI Agents Actually Need',
+        url: 'https://iceberglakehouse.com/posts/metric-contracts-for-ai-agents/',
+        note: 'Calculation, grain, time semantics, ownership, versioning, and tests as one contract.',
+      },
+      {
+        title: 'Why Agentic AI Needs a Governed Semantic Layer Behind the Model Context Protocol',
+        url: 'https://iceberglakehouse.com/posts/mcp-governed-semantic-layer/',
+        note: 'MCP carries the connection; the semantic layer carries the meaning and the access rules.',
+      },
+      {
+        title: 'Composable Analytics with Agents: Leveraging Virtual Datasets and the Semantic Layer',
+        url: 'https://iceberglakehouse.com/posts/2025-09-composable-analytics-with-agents/',
+        note: 'A worked example of agents building on virtual datasets in a semantic layer.',
+      },
+    ],
+  },
+  {
+    id: 'open-standards',
+    title: 'Open standards and headless BI',
+    intro: 'Keeping definitions portable: headless BI, Apache Ossie, and where semantic models sit in an open lakehouse.',
+    posts: [
+      {
+        title: 'Headless BI: How a Universal Semantic Layer Replaces Tool-Specific Models',
+        url: 'https://iceberglakehouse.com/posts/2026-02-sl-headless-bi-semantic-layer/',
+        note: 'One model served to every tool instead of one model per dashboard product.',
+      },
+      {
+        title: 'Apache Ossie and Apache Polaris: Putting Semantic Models in the Open Catalog',
+        url: 'https://iceberglakehouse.com/posts/apache-ossie-polaris-semantic-models/',
+        note: 'What the Ossie spec covers, what the catalog stores, and what is still unfinished.',
+      },
+      {
+        title: 'How Apache Ossie Is Deciding What Agents and BI Tools Can Ask a Semantic Layer',
+        url: 'https://iceberglakehouse.com/posts/ossie-semantic-query-interface-agents/',
+        note: 'The layered query design: a constrained dimensional interface and a grain-safe SQL interface.',
+      },
+      {
+        title: 'The Breakdown of the Open Lakehouse in 2026',
+        url: 'https://datalakehousehub.com/blog/open-lakehouse-breakdown-2026/',
+        note: 'Parquet, Iceberg, Polaris, Arrow, and Ossie, and how the five fit into one build.',
+      },
+    ],
+  },
+];
+
+const SITE = 'https://semanticlakehouse.com';
+const allPosts = groups.flatMap((g) => g.posts);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${SITE}/blog/#collection`,
+  name: 'Semantic layer reading list',
+  url: `${SITE}/blog/`,
+  isPartOf: { '@id': `${SITE}/#website` },
+  author: { '@id': 'https://alexmerced.com/#alexmerced' },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: allPosts.length,
+    itemListElement: allPosts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: post.title,
+      url: post.url,
+    })),
+  },
+};
 ---
 
 <Layout
-  title="Articles on Semantic Layers and the Lakehouse"
-  description="Long-form articles on semantic layers, data lakehouses, Apache Iceberg and agentic analytics, pulled live from the DataLakehouseHub.com feed."
+  title="Semantic Layer Reading List | SemanticLakehouse.com"
+  description="A curated reading list on semantic layers: foundations, governance, AI agents, and open standards like Apache Ossie, with a note on why each article is worth your time."
+  jsonLd={jsonLd}
 >
   <div class="container page-header">
-    <h1>Articles</h1>
-    <p>Long-form writing on semantic layers, the lakehouse and the AI systems reading them. Pulled live from the <a href="https://datalakehousehub.com" target="_blank" rel="noopener">DataLakehouseHub.com</a> feed.</p>
+    <h1>Semantic layer reading list</h1>
+    <p class="lede">
+      I have written a lot about semantic layers across the network. These are the articles I would
+      hand someone who has to design, run, or defend one.
+    </p>
   </div>
 
-  <div class="container">
-    <div class="search-bar">
-      <input type="text" id="blogSearch" placeholder="Search articles..." class="search-input" />
-    </div>
-
-    <div class="blog-grid" id="blogGrid">
-      {/* Server-rendered for crawlability; JS enhances with search + pagination */}
-      {blogs.map(blog => (
-        <a href={blog.url} target="_blank" rel="noopener noreferrer" class="card blog-card">
-          <h2>{blog.title}</h2>
-          <span class="date">{blog.date}</span>
-        </a>
-      ))}
-    </div>
-    
-    <div class="pagination" id="paginationControls">
-      <!-- Populated by JS -->
-    </div>
+  <div class="container reading-intro card">
+    <h2>Why these posts</h2>
+    <p>
+      A semantic layer succeeds or fails on details that do not show up in a vendor demo: whether a
+      metric keeps its meaning when it is sliced a new way, whether access rules follow the
+      definition into every tool, and whether an AI agent resolves a question through an endorsed
+      definition or invents its own formula from column names. The list below starts with the basic
+      vocabulary, moves to running the layer in production, then covers what changes when agents
+      become the main consumer, and ends with the open standards that keep your definitions
+      portable.
+    </p>
+    <p>
+      Each link goes to the article's canonical home, usually IcebergLakehouse.com or
+      DataLakehouseHub.com. For short definitions of the terms used in these articles, see the
+      <a href="/knowledge-base">knowledge base</a>.
+    </p>
+    <nav aria-label="Reading list sections">
+      <ul class="jump-list">
+        {groups.map((group) => (<li><a href={`#${group.id}`}>{group.title}</a></li>))}
+      </ul>
+    </nav>
   </div>
+
+  {groups.map((group) => (
+    <section class="container reading-group" id={group.id}>
+      <h2>{group.title}</h2>
+      <p class="group-intro">{group.intro}</p>
+      <ol class="reading-list">
+        {group.posts.map((post) => (
+          <li class="card reading-item">
+            <a href={post.url} target="_blank" rel="noopener">{post.title}</a>
+            <p>{post.note}</p>
+            <span class="source">{new URL(post.url).hostname}</span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))}
 </Layout>
-
-<script is:inline define:vars={{ blogs }}>
-  const itemsPerPage = 12; // 3 or 4 per row, 3 rows max (4x3=12)
-  let currentPage = 1;
-  let filteredBlogs = [...blogs];
-
-  const searchInput = document.getElementById('blogSearch');
-  const blogGrid = document.getElementById('blogGrid');
-  const paginationControls = document.getElementById('paginationControls');
-
-  function renderBlogs() {
-    if (!blogGrid) return;
-    blogGrid.innerHTML = '';
-
-    if (filteredBlogs.length === 0) {
-      blogGrid.innerHTML = '<div class="card" style="grid-column: 1 / -1; text-align: center;"><p>No blogs found.</p></div>';
-      return;
-    }
-
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const currentBlogs = filteredBlogs.slice(start, end);
-
-    currentBlogs.forEach(blog => {
-      const a = document.createElement('a');
-      a.href = blog.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.className = "card blog-card";
-      a.innerHTML = `
-        <h2>${blog.title}</h2>
-        <span class="date">${blog.date}</span>
-      `;
-      blogGrid.appendChild(a);
-    });
-
-    renderPagination();
-  }
-
-  function renderPagination() {
-    if (!paginationControls) return;
-    paginationControls.innerHTML = '';
-    const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage);
-
-    if (totalPages <= 1) return;
-
-    for (let i = 1; i <= totalPages; i++) {
-      const btn = document.createElement('button');
-      btn.innerText = i;
-      btn.className = i === currentPage ? 'page-btn active' : 'page-btn';
-      btn.addEventListener('click', () => {
-        currentPage = i;
-        renderBlogs();
-        window.scrollTo(0, 0);
-      });
-      paginationControls.appendChild(btn);
-    }
-  }
-
-  searchInput?.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    filteredBlogs = blogs.filter(blog => blog.title.toLowerCase().includes(term));
-    currentPage = 1; // Reset to first page
-    renderBlogs();
-  });
-
-  // Initial render
-  renderBlogs();
-</script>
 
 <style>
   .page-header {
     text-align: center;
     padding: 4rem 0 2rem;
   }
-  .search-bar {
-    max-width: 600px;
-    margin: 0 auto 3rem;
-  }
-  .search-input {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    font-size: 1.1rem;
-    border-radius: 30px;
-    border: 1px solid var(--color-slate-hint);
-    background-color: var(--surface-frosted-pane);
-    color: var(--color-cloud-whisper);
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  .search-input:focus {
-    border-color: var(--color-deep-violet);
-  }
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1200px;
+  .lede {
+    max-width: 680px;
     margin: 0 auto;
+    font-size: 1.1rem;
   }
-  .blog-card {
+  .reading-intro {
+    max-width: 860px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+  }
+  .reading-intro:hover {
+    transform: none;
+  }
+  .reading-intro h2 {
+    margin-top: 0;
+  }
+  .jump-list {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 1.5rem;
-    height: 100%;
-  }
-  .blog-card h2 {
-    margin: 0 0 1rem 0;
-    font-size: 1.25rem;
-    line-height: 1.4;
-    letter-spacing: normal;
-    font-weight: 700;
-  }
-  .date {
-    color: var(--color-slate-hint);
-    font-size: 0.9rem;
-  }
-  .pagination {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 3rem;
     flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    padding: 0;
+    margin: 1.25rem 0 0;
+    font-weight: 600;
   }
-  .page-btn {
-    background: transparent;
-    border: 1px solid var(--color-slate-hint);
-    color: var(--color-cloud-whisper);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-buttons);
-    cursor: pointer;
-    font-family: var(--font-whyte-inktrap);
-    transition: all 0.2s ease;
+  .reading-group {
+    max-width: 860px;
+    margin: 0 auto 3rem;
+    scroll-margin-top: 7rem;
   }
-  .page-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
+  .group-intro {
+    color: var(--color-slate-hint);
+    margin-bottom: 1.5rem;
   }
-  .page-btn.active {
-    background: var(--color-deep-violet);
-    color: var(--color-midnight-eclipse);
-    border-color: var(--color-deep-violet);
+  .reading-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .reading-item {
+    padding: 1.25rem 1.5rem;
+  }
+  .reading-item:hover {
+    transform: none;
+  }
+  .reading-item a {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .reading-item p {
+    margin: 0.5rem 0 0.4rem;
+  }
+  .source {
+    font-size: 0.85rem;
+    color: var(--color-slate-hint);
+    font-family: var(--font-whyte-inktrap-mono);
   }
 </style>
