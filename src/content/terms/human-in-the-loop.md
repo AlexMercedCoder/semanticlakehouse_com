@@ -1,6 +1,6 @@
 ---
 title: "Human-in-the-Loop"
-description: "Incorporating human review steps in autonomous agent loops for verification or safety."
+description: "A pattern that pauses an AI agent for human review at key points, such as low confidence or before expensive or irreversible actions, then lets it resume work."
 related: ["ai-agent", "autonomous-workflow", "guardrails-ai"]
 ---
 

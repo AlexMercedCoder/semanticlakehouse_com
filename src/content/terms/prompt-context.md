@@ -1,6 +1,6 @@
 ---
 title: "Prompt Context"
-description: "The targeted business rules, schema metadata, and background information injected into an LLM prompt to guide its reasoning."
+description: "The schemas, business definitions, rules and example SQL injected into an LLM prompt before the question, so answers match the actual database and its joins."
 related: ["context-layer", "llm-context-window", "retrieval-augmented-generation"]
 ---
 

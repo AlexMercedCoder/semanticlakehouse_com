@@ -1,6 +1,6 @@
 ---
 title: "Headless BI"
-description: "An architectural pattern that decouples the semantic layer from frontend BI visualization tools."
+description: "A pattern that moves the semantic layer and metric definitions out of any one BI tool into a central service that dashboards, notebooks and agents query by API."
 related: ["semantic-layer", "metrics-store"]
 ---
 

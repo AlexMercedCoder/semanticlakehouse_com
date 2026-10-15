@@ -1,6 +1,6 @@
 ---
 title: "Fact Table"
-description: "A central table in a dimensional model containing quantitative metrics and foreign keys to dimension tables."
+description: "The central table of a dimensional model, holding numeric measures like revenue or quantity plus foreign keys to dimensions. Most aggregate queries target it."
 related: ["dimension-table", "star-schema", "metrics-store"]
 ---
 

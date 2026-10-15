@@ -1,6 +1,6 @@
 ---
 title: "Dremio"
-description: "A unified data lakehouse platform that provides query virtualization, high-speed execution, and a semantic layer."
+description: "A lakehouse platform for SQL analytics directly on object storage, combining query virtualization, Reflections for acceleration and a central semantic layer."
 related: ["query-virtualization", "dremio-reflections", "arrow-flight"]
 ---
 

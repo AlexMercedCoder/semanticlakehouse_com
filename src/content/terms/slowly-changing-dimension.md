@@ -1,6 +1,6 @@
 ---
 title: "Slowly Changing Dimension"
-description: "A data modeling technique for tracking historical changes in dimension attributes over time."
+description: "A modeling pattern for tracking changes to dimension attributes over time. Type 1 overwrites values, Type 2 adds dated rows, and Type 3 keeps a prior column."
 related: ["dimension-table", "fact-table", "time-travel"]
 ---
 

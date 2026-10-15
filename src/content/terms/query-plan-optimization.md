@@ -1,6 +1,6 @@
 ---
 title: "Query Plan Optimization"
-description: "The process of selecting the most efficient query execution strategy across distributed engines."
+description: "How a query engine picks the cheapest way to run a SQL statement, applying logical rewrites, then comparing join and scan options by cost statistics."
 related: ["pushdown-query", "query-virtualization", "dremio-reflections"]
 ---
 

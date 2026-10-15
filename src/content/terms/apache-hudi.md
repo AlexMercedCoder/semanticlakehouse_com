@@ -1,6 +1,6 @@
 ---
 title: "Apache Hudi"
-description: "A transactional lakehouse table format optimized for fast upserts, deletes, and incremental queries."
+description: "An open transactional table format for object storage built for fast upserts, deletes and incremental reads, with Copy on Write and Merge on Read layouts."
 related: ["data-lakehouse", "apache-iceberg", "delta-lake"]
 ---
 

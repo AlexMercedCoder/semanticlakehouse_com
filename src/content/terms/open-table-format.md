@@ -1,6 +1,6 @@
 ---
 title: "Open Table Format"
-description: "A specification defining how file organizations behave as transaction-safe tables on object storage."
+description: "A specification that makes a set of Parquet, ORC or Avro files act as one transactional table on object storage, with ACID commits shared across many engines."
 related: ["apache-iceberg", "delta-lake", "apache-hudi"]
 ---
 

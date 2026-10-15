@@ -1,6 +1,6 @@
 ---
 title: "LLM Orchestration"
-description: "The framework (e.g., LangChain, semantic routing) coordinating calls, prompts, and tools for an LLM."
+description: "The framework that coordinates an LLM application: building prompts, routing between steps, managing state, and calling tools such as catalogs and SQL engines."
 related: ["ai-agent", "react-pattern", "tool-call"]
 ---
 

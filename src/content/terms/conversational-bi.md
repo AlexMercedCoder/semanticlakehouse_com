@@ -1,6 +1,6 @@
 ---
 title: "Conversational BI"
-description: "Querying and visualizing business data using conversational natural language interfaces."
+description: "Business intelligence driven by plain language questions instead of SQL or drag-and-drop. It parses intent, generates and runs SQL, then charts the results."
 related: ["agentic-analytics", "autonomous-query-agent", "semantic-layer"]
 ---
 

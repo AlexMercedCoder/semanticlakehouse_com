@@ -1,6 +1,6 @@
 ---
 title: "Optimistic Concurrency Control"
-description: "A concurrency control method that assumes conflicts are rare and resolves them during the write phase."
+description: "A lock-free transaction method that lets writers work in parallel and checks for conflicts only at commit, retrying on overlap. Iceberg uses it for ACID writes."
 related: ["acid-transactions", "write-amplification", "open-table-format"]
 ---
 

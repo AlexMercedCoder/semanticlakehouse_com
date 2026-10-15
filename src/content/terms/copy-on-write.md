@@ -1,6 +1,6 @@
 ---
 title: "Copy on Write"
-description: "A write strategy that immediately creates a new data file combining changes with unmodified data."
+description: "A table write strategy that rewrites the whole data file whenever a row in it is updated or deleted. Writes cost more, but reads need no merging at query time."
 related: ["merge-on-read", "compaction", "write-amplification"]
 ---
 

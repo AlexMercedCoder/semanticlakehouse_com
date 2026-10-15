@@ -1,6 +1,6 @@
 ---
 title: "Retrieval-Augmented Generation"
-description: "An architectural pattern that retrieves relevant external data to enhance the accuracy of LLM responses."
+description: "RAG retrieves relevant facts, documents or schemas from outside sources and adds them to an LLM prompt before generation, improving accuracy without retraining."
 related: ["context-layer", "prompt-context", "grounding-data"]
 ---
 

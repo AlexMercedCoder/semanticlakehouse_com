@@ -1,6 +1,6 @@
 ---
 title: "Text-to-SQL Context"
-description: "The schemas, rules, and examples supplied to an LLM to guide accurate SQL query generation."
+description: "The table definitions, column types, joins and sample queries given to an LLM so it can turn a natural language question into valid SQL for that database."
 related: ["context-layer", "prompt-context", "retrieval-augmented-generation"]
 ---
 

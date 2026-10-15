@@ -1,6 +1,6 @@
 ---
 title: "Data Lakehouse"
-description: "An open data architecture combining data lake scale and flexibility with data warehouse transaction features."
+description: "An architecture that pairs the low-cost scale of a data lake with warehouse transactions and governance, using open formats like Parquet on object storage."
 related: ["apache-iceberg", "semantic-layer", "query-virtualization"]
 ---
 

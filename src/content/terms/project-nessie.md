@@ -1,6 +1,6 @@
 ---
 title: "Project Nessie"
-description: "A transactional catalog for data lakes offering Git-like version control for tables."
+description: "An open-source transactional catalog that adds Git-style branches, commits, merges and tags to lakehouse tables, so changes across tables land atomically."
 related: ["apache-polaris", "iceberg-catalog", "apache-iceberg"]
 ---
 

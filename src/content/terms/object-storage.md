@@ -1,6 +1,6 @@
 ---
 title: "Object Storage"
-description: "A flat file storage architecture (e.g., S3, ADLS) optimized for highly scalable unstructured data."
+description: "Storage that keeps data as objects in a flat key namespace, accessed over HTTP APIs like S3. It holds a lakehouse's Parquet files but cannot run queries itself."
 related: ["data-lakehouse", "parquet-format", "open-table-format"]
 ---
 

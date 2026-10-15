@@ -1,6 +1,6 @@
 ---
 title: "Virtual Dataset"
-description: "A logical data view in Dremio that abstracts physical tables for user consumption without duplicating storage."
+description: "In Dremio, a dataset defined by a SQL query that presents physical data as a clean, reusable view without copying files. Together they form the semantic layer."
 related: ["physical-dataset", "logical-view", "semantic-layer"]
 ---
 

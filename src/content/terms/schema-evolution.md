@@ -1,6 +1,6 @@
 ---
 title: "Schema Evolution"
-description: "The capability to modify table schemas (e.g., adding columns) without rewriting historical data."
+description: "Changing a table's columns by adding, dropping, renaming or reordering them without rewriting data files. Iceberg tracks columns by unique IDs to keep it safe."
 related: ["open-table-format", "apache-iceberg", "partition-evolution"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Apache Polaris"
-description: "An open-source metadata catalog for Apache Iceberg providing cross-engine access control."
+description: "An open-source catalog for Apache Iceberg tables that tracks metadata pointers, vends short-lived storage credentials and applies RBAC across query engines."
 related: ["project-nessie", "metadata-registry", "apache-iceberg"]
 ---
 

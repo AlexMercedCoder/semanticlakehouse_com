@@ -1,6 +1,6 @@
 ---
 title: "Data Semantics"
-description: "The metadata defining the real-world meaning, business context, and operational rules of stored data elements."
+description: "The metadata and business rules that say what a field means in the real world, mapping a code like cust_stat_cd_4 to a clear concept like Active Customer."
 related: ["semantic-layer", "semantic-modeling", "metadata-registry"]
 ---
 

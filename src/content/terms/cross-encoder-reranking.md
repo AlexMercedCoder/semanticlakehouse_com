@@ -1,6 +1,6 @@
 ---
 title: "Cross-Encoder Reranking"
-description: "A second-stage retrieval step that scores the relevance of retrieved chunks using deep model attention."
+description: "A second retrieval stage where a model reads the query and each candidate chunk together, scores relevance with full attention, and keeps only the best few."
 related: ["hybrid-search", "dense-retrieval", "llm-context-window"]
 ---
 

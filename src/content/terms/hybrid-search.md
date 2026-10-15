@@ -1,6 +1,6 @@
 ---
 title: "Hybrid Search"
-description: "An information retrieval method combining keyword match (BM25) with vector semantic search."
+description: "Retrieval that runs keyword search (BM25) and vector search in parallel and fuses the results, catching exact names and codes while still matching meaning."
 related: ["vector-database", "dense-retrieval", "sparse-retrieval"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Metadata Registry"
-description: "A centralized system containing definitions, lineage, and ownership details for enterprise data assets."
+description: "A central catalog of schemas, business definitions, lineage and ownership for enterprise data. Agents query it as a map to find the right tables and metrics."
 related: ["semantic-layer", "apache-polaris", "project-nessie"]
 ---
 

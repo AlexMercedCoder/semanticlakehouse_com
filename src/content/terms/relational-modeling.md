@@ -1,6 +1,6 @@
 ---
 title: "Relational Modeling"
-description: "A method of structuring database tables, keys, and constraints to ensure data integrity and query efficiency."
+description: "A design method that organizes data into tables of rows and columns linked by primary and foreign keys, with constraints and normal forms to protect integrity."
 related: ["logical-data-model", "star-schema", "semantic-modeling"]
 ---
 

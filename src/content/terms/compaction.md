@@ -1,6 +1,6 @@
 ---
 title: "Compaction"
-description: "The background process of consolidating small files into larger, optimized files to speed up queries."
+description: "A maintenance job that merges many small data files into fewer large ones, often 128MB to 256MB Parquet files, and swaps metadata pointers to speed up queries."
 related: ["write-amplification", "copy-on-write", "merge-on-read"]
 ---
 

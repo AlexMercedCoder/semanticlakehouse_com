@@ -1,6 +1,6 @@
 ---
 title: "Partition Evolution"
-description: "Updating a table's partitioning strategy over time without rebuilding the entire table."
+description: "Changing a table's partitioning, such as monthly to daily, without rewriting old files. Iceberg keeps both layouts and prunes each one correctly at query time."
 related: ["hidden-partitioning", "schema-evolution", "apache-iceberg"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Write Amplification"
-description: "The ratio of data written to storage relative to the logical amount of data changed by a write operation."
+description: "The ratio of bytes physically written to storage to the data logically changed. Rewriting whole Parquet files and metadata for small updates drives it up."
 related: ["compaction", "copy-on-write", "merge-on-read"]
 ---
 

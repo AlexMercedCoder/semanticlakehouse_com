@@ -1,6 +1,6 @@
 ---
 title: "Entity Resolution"
-description: "The process of identifying and linking records that refer to the same real-world entity."
+description: "The process of finding and merging records from different sources that refer to the same real-world entity, using normalization, blocking and fuzzy matching."
 related: ["semantic-reconciliation", "logical-data-model", "data-semantics"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Hidden Partitioning"
-description: "A feature in Apache Iceberg that automatically manages partitions without requiring user-facing columns."
+description: "An Apache Iceberg feature that tracks how partitions derive from source columns, so a filter on a timestamp prunes files without a separate partition column."
 related: ["apache-iceberg", "partition-evolution", "open-table-format"]
 ---
 

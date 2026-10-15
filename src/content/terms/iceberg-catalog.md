@@ -1,6 +1,6 @@
 ---
 title: "Iceberg Catalog"
-description: "The component that tracks the current state (current metadata pointer) of an Apache Iceberg table."
+description: "The service that maps each Apache Iceberg table to its current metadata file and swaps that pointer atomically, so concurrent engines see one consistent state."
 related: ["apache-polaris", "project-nessie", "apache-iceberg"]
 ---
 

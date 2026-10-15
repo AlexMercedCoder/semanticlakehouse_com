@@ -1,6 +1,6 @@
 ---
 title: "Parquet Format"
-description: "An open-source, columnar storage file format optimized for fast query performance in analytical engines."
+description: "An open columnar file format that stores each column contiguously with compression and min and max statistics, so engines read only the columns and rows needed."
 related: ["object-storage", "data-lakehouse", "open-table-format"]
 ---
 

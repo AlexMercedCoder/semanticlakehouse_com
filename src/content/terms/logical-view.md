@@ -1,6 +1,6 @@
 ---
 title: "Logical View"
-description: "A virtual table defined by an analytical query that presents dynamic data without storing physical copies."
+description: "A virtual table defined by a SQL query that stores no data and runs on demand. It hides joins and masks columns, giving users and agents a clean interface."
 related: ["logical-data-model", "virtual-dataset", "physical-dataset"]
 ---
 

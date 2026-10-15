@@ -45,17 +45,17 @@ export const GET: APIRoute = async () => {
   lines.push('## Structure');
   lines.push('');
   lines.push(`- [Home](${SITE}/): the four ideas this site covers, plus answers to the questions people ask first.`);
-  lines.push(`- [Videos](${SITE}/videos): silent animated explainers, 16:9 MP4, roughly 45 seconds each.`);
-  lines.push(`- [Semantic layer reading list](${SITE}/blog): curated articles on semantic layers, grouped by foundations, governance, AI agents and open standards, each linked at its canonical home.`);
-  lines.push(`- [Reading](${SITE}/reading): books on the lakehouse, Apache Iceberg and AI by Alex Merced.`);
-  lines.push(`- [Knowledge Base](${SITE}/knowledge-base): ${terms.length} definitions covering semantic layers, the lakehouse and AI.`);
+  lines.push(`- [Videos](${SITE}/videos/): silent animated explainers, 16:9 MP4, roughly 45 seconds each.`);
+  lines.push(`- [Semantic layer reading list](${SITE}/blog/): curated articles on semantic layers, grouped by foundations, governance, AI agents and open standards, each linked at its canonical home.`);
+  lines.push(`- [Reading](${SITE}/reading/): books on the lakehouse, Apache Iceberg and AI by Alex Merced.`);
+  lines.push(`- [Knowledge Base](${SITE}/knowledge-base/): ${terms.length} definitions covering semantic layers, the lakehouse and AI.`);
   lines.push('');
 
   if (videos.length) {
     lines.push('## Video explainers');
     lines.push('');
     for (const v of videos) {
-      lines.push(`- [${v.title}](${SITE}/videos#${v.slug}): ${v.description}`);
+      lines.push(`- [${v.title}](${SITE}/videos/#${v.slug}): ${v.description}`);
     }
     lines.push('');
   }
@@ -63,7 +63,7 @@ export const GET: APIRoute = async () => {
   lines.push('## Knowledge base');
   lines.push('');
   for (const t of terms) {
-    lines.push(`- [${t.data.title}](${SITE}/knowledge-base/${t.id}): ${t.data.description}`);
+    lines.push(`- [${t.data.title}](${SITE}/knowledge-base/${t.id}/): ${t.data.description}`);
   }
   lines.push('');
 

@@ -1,6 +1,6 @@
 ---
 title: "Context Layer"
-description: "The abstraction layer providing business metadata, permissions, and semantic details to LLMs and AI agents."
+description: "The layer that feeds LLMs and agents the schemas, column descriptions, business rules and query guidelines they need to write correct SQL and read the results."
 related: ["semantic-layer", "agentic-analytics", "prompt-context"]
 ---
 

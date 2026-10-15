@@ -1,6 +1,6 @@
 ---
 title: "Semantic Reconciliation"
-description: "The process of mapping and unifying conflicting data definitions across systems to a single semantic standard."
+description: "Unifying conflicting definitions across systems, such as cust_id and client_num, into one standard so every query and AI agent gets the same consistent answer."
 related: ["semantic-layer", "metadata-registry", "data-semantics"]
 ---
 

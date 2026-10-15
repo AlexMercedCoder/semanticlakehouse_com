@@ -1,6 +1,6 @@
 ---
 title: "Arrow Flight"
-description: "A high-performance protocol based on Apache Arrow designed for high-throughput distributed data transfer."
+description: "A data transfer framework that moves Apache Arrow columnar buffers over gRPC, avoiding the row serialization overhead of JDBC and ODBC for large result sets."
 related: ["dremio", "dremio-reflections", "query-virtualization"]
 ---
 

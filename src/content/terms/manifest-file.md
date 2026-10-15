@@ -1,6 +1,6 @@
 ---
 title: "Manifest File"
-description: "An Iceberg metadata file tracking the physical data files associated with a specific table snapshot."
+description: "An Apache Iceberg metadata file listing data files with their partition values and column min and max stats, so engines skip files without opening them."
 related: ["manifest-list", "table-metadata-spec", "apache-iceberg"]
 ---
 

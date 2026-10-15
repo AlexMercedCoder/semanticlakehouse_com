@@ -1,6 +1,6 @@
 ---
 title: "Tool Call"
-description: "An LLM-driven instruction to execute a registered function or search API with specific arguments."
+description: "When an LLM outputs a structured request, usually JSON, to run a registered function such as a SQL query. The orchestrator executes it and returns the output."
 related: ["ai-agent", "react-pattern", "llm-orchestration"]
 ---
 

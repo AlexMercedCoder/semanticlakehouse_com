@@ -1,6 +1,6 @@
 ---
 title: "Query Virtualization"
-description: "Accessing and querying data across multiple heterogeneous sources without moving or replicating it."
+description: "Querying data across databases, files and cloud storage in place, without copying it. A virtual layer exposes one catalog and translates SQL for each source."
 related: ["dremio", "query-federation", "pushdown-query"]
 ---
 

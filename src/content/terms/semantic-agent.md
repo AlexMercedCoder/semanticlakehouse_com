@@ -1,6 +1,6 @@
 ---
 title: "Semantic Agent"
-description: "An AI agent that uses a semantic layer to understand database business definitions and schemas."
+description: "An AI agent that queries data through a semantic layer, using business terms like Revenue instead of raw column names, so its SQL follows governed definitions."
 related: ["ai-agent", "semantic-layer", "agentic-rag"]
 ---
 

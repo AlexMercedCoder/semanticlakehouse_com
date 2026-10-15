@@ -1,6 +1,6 @@
 ---
 title: "User Persona Context"
-description: "Metadata representing the user's role, permissions, and history to tailor AI interactions."
+description: "Metadata about the user, including role, permissions and recent queries, added to an LLM prompt so answers fit that user and never expose data they cannot see."
 related: ["prompt-context", "context-layer", "prompt-engineering-context"]
 ---
 

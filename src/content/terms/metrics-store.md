@@ -1,6 +1,6 @@
 ---
 title: "Metrics Store"
-description: "A centralized repository that defines and governs business metrics independently of downstream tools."
+description: "A layer that defines business metrics once in code such as YAML or SQL and compiles requests into SQL, so dashboards, models and agents get the same KPI values."
 related: ["semantic-layer", "headless-bi", "governed-metric"]
 ---
 

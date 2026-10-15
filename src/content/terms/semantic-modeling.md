@@ -1,6 +1,6 @@
 ---
 title: "Semantic Modeling"
-description: "The process of defining the meaning, relationships, and business rules of data entities."
+description: "Designing data around its business meaning rather than storage: mapping physical tables to business entities, labels, joins, hierarchies and calculations."
 related: ["semantic-layer", "logical-data-model", "data-semantics"]
 ---
 

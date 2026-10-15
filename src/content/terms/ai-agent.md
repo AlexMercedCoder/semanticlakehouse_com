@@ -1,6 +1,6 @@
 ---
 title: "AI Agent"
-description: "A software component that uses an LLM to reason, select tools, and interact with its environment autonomously."
+description: "Software that runs on an LLM to plan, call tools and act toward a goal. In a lakehouse, agents read catalog metadata and run SQL without hand-written queries."
 related: ["llm-orchestration", "react-pattern", "tool-call"]
 ---
 

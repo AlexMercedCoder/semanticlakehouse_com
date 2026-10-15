@@ -1,6 +1,6 @@
 ---
 title: "Knowledge Graph"
-description: "A network of real-world entities and their semantic relationships stored as nodes and edges."
+description: "A network of entities linked by named relationships, stored as subject, predicate, object triples. Agents traverse it to see how tables and metrics connect."
 related: ["semantic-graph", "graph-database", "entity-resolution"]
 ---
 

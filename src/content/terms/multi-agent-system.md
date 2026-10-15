@@ -1,6 +1,6 @@
 ---
 title: "Multi-Agent System"
-description: "A cooperative architecture where specialized agents interact to solve complex analytical workflows."
+description: "An architecture where specialized AI agents split a task, such as one writing SQL, one validating it and one reporting, coordinated by an orchestrator."
 related: ["ai-agent", "llm-orchestration", "autonomous-workflow"]
 ---
 

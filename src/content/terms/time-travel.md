@@ -1,6 +1,6 @@
 ---
 title: "Time Travel"
-description: "Querying historical states of a table by referencing specific timestamps or snapshot IDs."
+description: "Querying a table as it existed at a past snapshot or timestamp, using syntax like VERSION AS OF. It supports audits, pipeline debugging and reproducible work."
 related: ["apache-iceberg", "open-table-format", "acid-transactions"]
 ---
 

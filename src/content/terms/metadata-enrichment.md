@@ -1,6 +1,6 @@
 ---
 title: "Metadata Enrichment"
-description: "Adding descriptive tags, classifications, or semantic relationships to raw data."
+description: "Adding business definitions, lineage, classifications and sensitivity tags to raw data assets so people and AI agents can find, understand and safely use them."
 related: ["metadata-registry", "semantic-modeling", "context-layer"]
 ---
 

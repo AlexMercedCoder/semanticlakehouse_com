@@ -1,6 +1,6 @@
 ---
 title: "Vector Embeddings"
-description: "Numerical representations of text or data capturing semantic meaning in a high-dimensional space."
+description: "Dense arrays of numbers that capture the meaning of text or data, placing similar items close together in vector space so similarity can be measured."
 related: ["vector-database", "embedding-model", "semantic-chunking"]
 ---
 

@@ -36,7 +36,7 @@ const collectionJsonLd = {
 
 <Layout
   title="Semantic Layer & Lakehouse Glossary | SemanticLakehouse"
-  description="Plain definitions for semantic layer, lakehouse and AI terms: metrics stores, Apache Iceberg, query federation, agentic analytics and more."
+  description="Plain definitions for semantic layer, lakehouse and AI terms: metrics stores, Apache Iceberg, query federation, agentic analytics and the rest of the stack."
   jsonLd={collectionJsonLd}
 >
   <div class="container page-header">
@@ -47,7 +47,7 @@ const collectionJsonLd = {
   <div class="container">
     <div class="terms-grid">
       {terms.map(term => (
-        <a href={`/knowledge-base/${term.id}`} class="card term-card">
+        <a href={`/knowledge-base/${term.id}/`} class="card term-card">
           <h2>{term.data.title}</h2>
         </a>
       ))}

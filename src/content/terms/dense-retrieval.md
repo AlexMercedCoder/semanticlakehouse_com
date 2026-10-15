@@ -1,6 +1,6 @@
 ---
 title: "Dense Retrieval"
-description: "Retrieving documents by measuring distance between continuous vector embeddings."
+description: "Search that encodes queries and documents as vector embeddings and matches them by semantic distance, using approximate nearest neighbor indexes for speed."
 related: ["sparse-retrieval", "vector-embeddings", "vector-database"]
 ---
 

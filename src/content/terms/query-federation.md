@@ -1,6 +1,6 @@
 ---
 title: "Query Federation"
-description: "Executing a single query that joins data located across multiple distinct databases or data sources."
+description: "Running one SQL statement across several databases and storage systems at once: the engine splits it into sub-queries per source and joins results in memory."
 related: ["dremio", "query-virtualization", "pushdown-query"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Autonomous Workflow"
-description: "An end-to-end operational process executed by agents without human intervention."
+description: "A multi-step process that AI agents plan and execute without human sign-off, such as detecting a slow Iceberg table, running compaction and checking the result."
 related: ["multi-agent-system", "ai-agent", "execution-loop"]
 ---
 

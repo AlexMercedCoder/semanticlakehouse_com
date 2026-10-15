@@ -1,6 +1,6 @@
 ---
 title: "ACID Transactions"
-description: "The set of properties (Atomicity, Consistency, Isolation, Durability) guaranteeing reliable data operations."
+description: "Atomicity, Consistency, Isolation and Durability: the guarantees that keep writes reliable. Open table formats like Iceberg bring them to object storage."
 related: ["open-table-format", "apache-iceberg", "optimistic-concurrency-control"]
 ---
 

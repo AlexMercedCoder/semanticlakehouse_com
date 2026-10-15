@@ -1,6 +1,6 @@
 ---
 title: "Dremio Reflections"
-description: "Pre-computed data structures in Dremio that accelerate query performance transparently using Arrow."
+description: "Precomputed raw or aggregated copies of data that Dremio's optimizer substitutes into query plans automatically, speeding queries without any SQL rewrites."
 related: ["dremio", "query-virtualization", "arrow-flight"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Sparse Retrieval"
-description: "Retrieving documents using exact match indices like term frequencies (e.g., TF-IDF or BM25)."
+description: "Keyword-based search using an inverted index and term weights like TF-IDF or BM25. It excels at exact matches such as table names, column IDs and serial codes."
 related: ["dense-retrieval", "hybrid-search", "vector-indexing"]
 ---
 

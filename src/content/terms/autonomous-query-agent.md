@@ -1,6 +1,6 @@
 ---
 title: "Autonomous Query Agent"
-description: "An agent specialized in translating natural language queries into optimized SQL plans."
+description: "An AI agent that turns natural language questions into SQL, runs it, reads any error and rewrites the query, then returns the result to the user in plain terms."
 related: ["ai-agent", "text-to-sql-context", "query-plan-optimization"]
 ---
 

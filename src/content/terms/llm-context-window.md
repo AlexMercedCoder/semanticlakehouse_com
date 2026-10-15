@@ -1,6 +1,6 @@
 ---
 title: "LLM Context Window"
-description: "The maximum volume of tokenized data a large language model can process in a single inference cycle."
+description: "The maximum number of tokens an LLM can process in one call, covering prompts, schemas and output. Lakehouse schemas rarely fit, so agents fetch selectively."
 related: ["context-layer", "prompt-context", "retrieval-augmented-generation"]
 ---
 

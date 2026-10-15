@@ -1,6 +1,6 @@
 ---
 title: "Semantic Graph"
-description: "A graph representation focused on the semantic and logical associations between concepts."
+description: "A graph whose nodes are concepts or data assets and whose edges carry explicit, machine-readable meanings. Agents use it to find which tables compute a metric."
 related: ["knowledge-graph", "semantic-modeling", "context-layer"]
 ---
 

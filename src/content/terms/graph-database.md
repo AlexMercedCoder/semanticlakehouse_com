@@ -1,6 +1,6 @@
 ---
 title: "Graph Database"
-description: "A database system designed to store and query highly connected data models natively."
+description: "A database that stores nodes and edges with direct pointers between them, so multi-hop relationship queries run without the heavy joins of relational SQL."
 related: ["knowledge-graph", "semantic-graph", "relational-modeling"]
 ---
 

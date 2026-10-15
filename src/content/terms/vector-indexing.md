@@ -1,6 +1,6 @@
 ---
 title: "Vector Indexing"
-description: "Algorithms (e.g., HNSW, IVF) that structure vector space to enable sub-linear similarity search."
+description: "Structures such as HNSW graphs, IVF clusters and quantization that organize vector embeddings so nearest-neighbor search avoids comparing every stored vector."
 related: ["vector-database", "vector-embeddings", "dense-retrieval"]
 ---
 

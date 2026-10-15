@@ -1,6 +1,6 @@
 ---
 title: "Z-Ordering"
-description: "A multidimensional clustering technique that organizes data files to optimize query filtering on multiple columns."
+description: "A clustering method that interleaves the bits of several columns into one sort value, grouping similar rows in shared files so filters on any of them skip more."
 related: ["compaction", "parquet-format", "open-table-format"]
 ---
 

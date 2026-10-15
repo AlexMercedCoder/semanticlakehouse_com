@@ -1,6 +1,6 @@
 ---
 title: "Derived Measure"
-description: "A metric calculated by applying mathematical operations to one or more base metrics."
+description: "A metric computed from other metrics, such as profit margin from net profit and revenue. It is defined in the semantic layer and calculated at query time."
 related: ["metrics-store", "governed-metric", "calculation-group"]
 ---
 

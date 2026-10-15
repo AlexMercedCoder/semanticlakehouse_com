@@ -1,6 +1,6 @@
 ---
 title: "Manifest List"
-description: "An Iceberg metadata file containing details about all the manifest files in a single table snapshot."
+description: "An Apache Iceberg metadata file representing one table snapshot. It lists the snapshot's manifest files with partition summaries, which enables time travel."
 related: ["manifest-file", "table-metadata-spec", "apache-iceberg"]
 ---
 

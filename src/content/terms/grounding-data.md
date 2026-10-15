@@ -1,6 +1,6 @@
 ---
 title: "Grounding Data"
-description: "Factually verified data used to anchor LLM responses and minimize model hallucinations."
+description: "Verified facts pulled from authoritative systems and placed in an LLM's context so it answers from company data, not its training, and each claim can be traced."
 related: ["retrieval-augmented-generation", "prompt-context", "context-layer"]
 ---
 

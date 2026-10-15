@@ -1,6 +1,6 @@
 ---
 title: "Time-Relative Metrics"
-description: "Metrics computed dynamically relative to specific points in time, such as Year-over-Year or Year-to-Date."
+description: "Metrics measured against a time period, such as Year-over-Year, Month-over-Month or Year-to-Date, computed at query time with window functions and date offsets."
 related: ["metrics-store", "governed-metric", "calculation-group"]
 ---
 

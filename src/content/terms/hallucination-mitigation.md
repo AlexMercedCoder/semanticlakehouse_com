@@ -1,6 +1,6 @@
 ---
 title: "Hallucination Mitigation"
-description: "Methods (such as prompt constraints or RAG grounding) used to minimize false model assertions."
+description: "Techniques that reduce false LLM claims, such as RAG grounding, prompts that allow saying I do not know, and checking step-by-step reasoning before answering."
 related: ["grounding-data", "retrieval-augmented-generation", "guardrails-ai"]
 ---
 

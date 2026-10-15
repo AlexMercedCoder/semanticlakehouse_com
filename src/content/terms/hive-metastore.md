@@ -1,6 +1,6 @@
 ---
 title: "Hive Metastore"
-description: "A legacy service that stores metadata for Hive tables, often replaced by modern catalogs."
+description: "The legacy metadata catalog of early data lakes, mapping tables to directory paths in a relational database. It lacks atomic multi-table commits and is slow."
 related: ["apache-polaris", "project-nessie", "iceberg-catalog"]
 ---
 

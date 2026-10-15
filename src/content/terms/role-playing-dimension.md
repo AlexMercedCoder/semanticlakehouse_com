@@ -1,6 +1,6 @@
 ---
 title: "Role-Playing Dimension"
-description: "A single physical dimension table that acts in multiple logical roles within a database schema."
+description: "One dimension table used in several roles against the same fact table, such as a Date table serving as Order, Ship and Delivery Date through SQL aliases."
 related: ["dimension-table", "fact-table", "star-schema"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Long-Term Memory"
-description: "Persistent memory storing user preferences, history, and patterns across distinct sessions."
+description: "Persistent storage that lets an AI agent keep user preferences and past outcomes across sessions, usually retrieved by vector similarity and added to prompts."
 related: ["short-term-memory", "vector-embeddings", "user-persona-context"]
 ---
 

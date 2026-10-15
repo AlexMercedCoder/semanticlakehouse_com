@@ -1,6 +1,6 @@
 ---
 title: "Agentic RAG"
-description: "An advanced RAG pattern where agents dynamically plan, refine, and query databases for context retrieval."
+description: "A RAG pattern where an agent plans, runs and refines its own searches across vector indices, tables and APIs, retrying when the retrieved context falls short."
 related: ["retrieval-augmented-generation", "ai-agent", "semantic-router"]
 ---
 

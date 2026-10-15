@@ -1,6 +1,6 @@
 ---
 title: "Star Schema"
-description: "A database schema design consisting of a central fact table surrounded by multiple dimension tables."
+description: "A dimensional design with one central fact table joined directly to flat dimension tables. Single-hop joins keep queries fast and agent SQL easy to get right."
 related: ["fact-table", "dimension-table", "snowflake-schema"]
 ---
 

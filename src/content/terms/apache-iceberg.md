@@ -1,6 +1,6 @@
 ---
 title: "Apache Iceberg"
-description: "A high-performance open table format for huge analytic datasets, enabling SQL table behaviors on object storage."
+description: "An open table format that gives object storage files SQL table behavior. Its metadata tree provides ACID commits, hidden partitioning and time travel."
 related: ["data-lakehouse", "open-table-format", "iceberg-catalog"]
 ---
 

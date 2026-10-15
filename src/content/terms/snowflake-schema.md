@@ -1,6 +1,6 @@
 ---
 title: "Snowflake Schema"
-description: "A database schema design where dimension tables are normalized into multiple related tables."
+description: "A dimensional design that normalizes dimension tables into several related tables. It cuts redundancy, but the multi-hop joins add overhead and agent SQL risk."
 related: ["star-schema", "fact-table", "dimension-table"]
 ---
 

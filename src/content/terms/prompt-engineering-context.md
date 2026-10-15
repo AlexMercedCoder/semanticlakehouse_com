@@ -1,6 +1,6 @@
 ---
 title: "Prompt Engineering Context"
-description: "Structured instructions and guidelines injected into prompts to control LLM behavior."
+description: "The instructions, few-shot examples and output constraints wrapped around a user query before it reaches an LLM, keeping its SQL valid and its actions in scope."
 related: ["prompt-context", "context-layer", "user-persona-context"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Delta Lake"
-description: "An open-source storage framework that enables building a lakehouse architecture on top of object stores."
+description: "An open storage format that adds ACID transactions to Parquet files on object storage through a JSON transaction log, with schema enforcement on every write."
 related: ["data-lakehouse", "apache-iceberg", "apache-hudi"]
 ---
 

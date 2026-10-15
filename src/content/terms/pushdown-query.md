@@ -1,6 +1,6 @@
 ---
 title: "Pushdown Query"
-description: "Offloading query processing operations (like filters and aggregations) to the underlying source database."
+description: "An optimization where the query engine sends filters, column selection and aggregations to the source system, so only the needed results cross the network."
 related: ["dremio", "query-virtualization", "query-federation"]
 ---
 

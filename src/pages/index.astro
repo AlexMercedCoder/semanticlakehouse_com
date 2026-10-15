@@ -159,7 +159,7 @@ const faqJsonLd = {
       <p class="subtitle">Open tables settle where your data lives. A semantic layer settles what it means. Put both in place and every dashboard, notebook and agent answers from the same definitions.</p>
       <div class="cta-buttons">
         <a href="#concepts" class="btn">Start with the four ideas</a>
-        <a href="/videos" class="btn btn-outline">Watch the explainers</a>
+        <a href="/videos/" class="btn btn-outline">Watch the explainers</a>
       </div>
     </div>
   </section>
@@ -176,20 +176,20 @@ const faqJsonLd = {
     <div class="card" style="padding: 1.5rem; margin-bottom: 2rem;">
       <h2>One question, one governed answer</h2>
       <p>Suppose an analyst asks, “What was net revenue last month?” An Iceberg <code>orders</code> table supplies the rows. The semantic layer defines <code>net_revenue = paid_amount - refunds</code>, with a calendar rule for “last month” and access rules for each region. The agent requests that metric through an approved interface, receives a value and time range, and cites the metric definition and data snapshot. A second dashboard can use the same definition instead of reimplementing the arithmetic.</p>
-      <p><a href="/knowledge-base/semantic-layer">Read about the semantic layer →</a> · <a href="https://agenticanalyticsnow.com/knowledge-base/what-is-agentic-analytics/">Read about agentic analytics on AgenticAnalyticsNow.com →</a></p>
+      <p><a href="/knowledge-base/semantic-layer/">Read about the semantic layer →</a> · <a href="https://agenticanalyticsnow.com/knowledge-base/what-is-agentic-analytics/">Read about agentic analytics on AgenticAnalyticsNow.com →</a></p>
     </div>
     <h2 class="section-heading">Four ideas this site keeps coming back to</h2>
     <div class="concepts-grid">
       <div class="card">
         <h3>Semantic layer</h3>
         <p>The executable bridge between physical tables and the questions people ask. It holds the metrics, dimensions and relationships every consumer resolves against, so a word like revenue means one thing across the company and to every AI agent reading it.</p>
-        <a href="/knowledge-base/semantic-layer" class="card-link">Semantic layer in the knowledge base</a>
+        <a href="/knowledge-base/semantic-layer/" class="card-link">Semantic layer in the knowledge base</a>
       </div>
 
       <div class="card">
         <h3>Data lakehouse</h3>
         <p>Data kept in open files and open table formats on storage you own, with the transactions, schema evolution and time travel a warehouse gave you. Apache Iceberg is how most teams get there, and the engine stops being the thing that holds the data hostage.</p>
-        <a href="/knowledge-base/apache-iceberg" class="card-link">Apache Iceberg in the knowledge base</a>
+        <a href="/knowledge-base/apache-iceberg/" class="card-link">Apache Iceberg in the knowledge base</a>
       </div>
 
       <div class="card">
@@ -201,7 +201,7 @@ const faqJsonLd = {
       <div class="card">
         <h3>Query federation</h3>
         <p>Query data where it already sits instead of copying it somewhere first. One access point across sources, with joins and filters pushed down to each one, so the semantic layer can span systems that were never going to merge.</p>
-        <a href="/knowledge-base/query-federation" class="card-link">Query federation in the knowledge base</a>
+        <a href="/knowledge-base/query-federation/" class="card-link">Query federation in the knowledge base</a>
       </div>
     </div>
   </section>
@@ -212,14 +212,14 @@ const faqJsonLd = {
       <p class="section-lede">Animated 16:9 breakdowns of the ideas above. Every point is on screen, so they read the same muted or embedded in your own docs.</p>
       <div class="video-teaser-grid">
         {featuredVideos.map(v => (
-          <a href={`/videos#${v.slug}`} class="card video-teaser-card">
+          <a href={`/videos/#${v.slug}`} class="card video-teaser-card">
             <img src={v.poster} alt={`Title card for the explainer video ${v.title}`} width="1920" height="1080" loading="lazy" decoding="async" />
             <h3>{v.title}</h3>
           </a>
         ))}
       </div>
       <div class="view-all">
-        <a href="/videos" class="btn btn-outline">All {videos.length} explainers</a>
+        <a href="/videos/" class="btn btn-outline">All {videos.length} explainers</a>
       </div>
     </section>
   )}
@@ -237,7 +237,7 @@ const faqJsonLd = {
           ))}
         </div>
         <div class="view-all">
-          <a href="/blog" class="btn btn-outline">View all articles</a>
+          <a href="/blog/" class="btn btn-outline">View all articles</a>
         </div>
       </div>
 
@@ -256,7 +256,7 @@ const faqJsonLd = {
           ))}
         </div>
         <div class="view-all">
-          <a href="/reading" class="btn btn-outline">The full reading list</a>
+          <a href="/reading/" class="btn btn-outline">The full reading list</a>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 ---
 title: "Semantic Chunking"
-description: "Segmenting text based on logical shifts in meaning rather than fixed character counts."
+description: "Splitting documents where the meaning shifts rather than at fixed token counts, using sentence similarity so each chunk holds a complete thought for retrieval."
 related: ["chunking-strategy", "embedding-model", "retrieval-augmented-generation"]
 ---
 

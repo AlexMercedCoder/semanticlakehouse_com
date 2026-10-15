@@ -1,6 +1,6 @@
 ---
 title: "Semantic Layer"
-description: "A business representation of corporate data that maps complex underlying structures to standardized business concepts."
+description: "An abstraction that maps physical tables and files to standard business terms, so people and AI agents query consistent, governed definitions without raw joins."
 related: ["metrics-store", "data-lakehouse", "agentic-analytics"]
 ---
 

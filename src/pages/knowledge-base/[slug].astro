@@ -73,7 +73,7 @@ const termJsonLd = {
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a>
       <span aria-hidden="true">&rsaquo;</span>
-      <a href="/knowledge-base">Knowledge Base</a>
+      <a href="/knowledge-base/">Knowledge Base</a>
       <span aria-hidden="true">&rsaquo;</span>
       <span aria-current="page">{entry.data.title}</span>
     </nav>
@@ -97,7 +97,7 @@ const termJsonLd = {
               .join(' ');
             const target = moved[rel];
             return (
-              <li><a href={target ? target.href : `/knowledge-base/${rel}`}>{target ? target.label : displayTitle}</a></li>
+              <li><a href={target ? target.href : `/knowledge-base/${rel}/`}>{target ? target.label : displayTitle}</a></li>
             );
           })}
         </ul>
@@ -105,8 +105,8 @@ const termJsonLd = {
     )}
 
     <nav class="term-footer" aria-label="Knowledge base">
-      <a href="/knowledge-base">All knowledge base terms</a>
-      <a href="/videos">Watch the explainer videos</a>
+      <a href="/knowledge-base/">All knowledge base terms</a>
+      <a href="/videos/">Watch the explainer videos</a>
     </nav>
   </article>
 </Layout>

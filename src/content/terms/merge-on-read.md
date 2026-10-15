@@ -1,6 +1,6 @@
 ---
 title: "Merge on Read"
-description: "A write strategy that logs changes to separate delta files, resolving merges dynamically during queries."
+description: "A table write strategy that records updates and deletes in separate delete files and applies them at query time. Ingestion gets faster while reads do more work."
 related: ["copy-on-write", "compaction", "write-amplification"]
 ---
 

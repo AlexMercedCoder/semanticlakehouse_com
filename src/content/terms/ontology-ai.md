@@ -1,6 +1,6 @@
 ---
 title: "Ontology (AI)"
-description: "A formal representation of concepts, classes, and properties used to structure AI context."
+description: "A formal model of a domain's classes, properties and allowed relationships. AI systems use it to reason about data as business concepts rather than raw tables."
 related: ["knowledge-graph", "semantic-graph", "context-layer"]
 ---
 

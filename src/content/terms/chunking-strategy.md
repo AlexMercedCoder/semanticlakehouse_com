@@ -1,6 +1,6 @@
 ---
 title: "Chunking Strategy"
-description: "The method of splitting large text documents into smaller segments for embedding and retrieval."
+description: "The method used to split long documents into smaller pieces before embedding, such as fixed-size, overlapping or recursive chunks, so retrieval stays precise."
 related: ["semantic-chunking", "retrieval-augmented-generation", "llm-context-window"]
 ---
 

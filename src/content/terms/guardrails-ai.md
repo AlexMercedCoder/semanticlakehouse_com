@@ -1,6 +1,6 @@
 ---
 title: "Guardrails (AI)"
-description: "Validation layers that filter inputs and outputs to prevent harmful, out-of-bounds, or hallucinated responses."
+description: "Validation layers around an LLM that filter inputs and outputs, blocking prompt injection, rejecting generated SQL with write commands and limiting query scope."
 related: ["hallucination-mitigation", "human-in-the-loop", "context-layer"]
 ---
 

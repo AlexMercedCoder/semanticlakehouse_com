@@ -1,6 +1,6 @@
 ---
 title: "Business Representation"
-description: "The user-friendly interface or abstraction layer presenting technical data as clear business concepts."
+description: "The layer of a semantic model that shows technical columns as business terms like Transaction Amount and handles joins, so users and agents never write raw SQL."
 related: ["semantic-layer", "logical-view", "virtual-dataset"]
 ---
 

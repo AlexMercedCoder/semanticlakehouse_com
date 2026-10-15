@@ -1,6 +1,6 @@
 ---
 title: "Semantic Router"
-description: "A logic component that routes incoming natural language requests to specific workflows, models, or databases based on intent."
+description: "A component that embeds an incoming request, compares it to indexed route examples, and sends it to the best workflow, model or data source for that intent."
 related: ["context-layer", "agentic-analytics", "prompt-context"]
 ---
 

@@ -17,14 +17,14 @@ const { title, description, jsonLd, canonical, ogType } = Astro.props;
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/videos', label: 'Videos' },
-  { href: '/blog', label: 'Articles' },
-  { href: '/reading', label: 'Reading' },
-  { href: '/knowledge-base', label: 'Knowledge Base' },
+  { href: '/videos/', label: 'Videos' },
+  { href: '/blog/', label: 'Articles' },
+  { href: '/reading/', label: 'Reading' },
+  { href: '/knowledge-base/', label: 'Knowledge Base' },
 ];
 
 const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
-const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href.replace(/\/+$/, '')));
 ---
 
 <!doctype html>

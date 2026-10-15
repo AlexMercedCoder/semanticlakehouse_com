@@ -1,6 +1,6 @@
 ---
 title: "Vector Database"
-description: "A database optimized for indexing, storing, and querying high-dimensional vector embeddings."
+description: "A database built to store and search high-dimensional vector embeddings by similarity, using indexes like HNSW or IVF. Agents query it for RAG document chunks."
 related: ["vector-embeddings", "hybrid-search", "dense-retrieval"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Dimension Table"
-description: "A table containing descriptive attributes used to filter, group, and label quantitative measurements."
+description: "A table of descriptive attributes, like customer, product or store, joined to a fact table by key and used to filter, group and label the numeric measures."
 related: ["fact-table", "star-schema", "slowly-changing-dimension"]
 ---
 

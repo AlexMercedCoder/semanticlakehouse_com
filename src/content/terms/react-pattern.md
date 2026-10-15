@@ -1,6 +1,6 @@
 ---
 title: "ReAct Pattern"
-description: "A framework enabling LLMs to alternate between reasoning (thought) and acting (executing tools)."
+description: "ReAct (Reasoning and Acting) is an agent loop where an LLM alternates between writing a thought, calling a tool such as a SQL query, and reading the result."
 related: ["ai-agent", "llm-orchestration", "tool-call"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Calculation Group"
-description: "A modeling pattern that allows the reuse of complex calculations across multiple base metrics."
+description: "A semantic modeling feature that defines logic such as Year-over-Year once and applies it to many base metrics at query time, avoiding many metric copies."
 related: ["metrics-store", "semantic-layer", "time-relative-metrics"]
 ---
 

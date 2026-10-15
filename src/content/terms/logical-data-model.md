@@ -1,6 +1,6 @@
 ---
 title: "Logical Data Model"
-description: "A conceptual representation of data structures, relationships, and business rules independent of physical storage details."
+description: "A blueprint of entities, attributes, keys and relationships that is independent of storage details. In a lakehouse it forms the base of the semantic layer."
 related: ["semantic-layer", "relational-modeling", "physical-dataset"]
 ---
 

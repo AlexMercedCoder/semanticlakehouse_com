@@ -1,6 +1,6 @@
 ---
 title: "Data Hierarchy"
-description: "A systematic ordering of data fields into nested levels to support analytical drilling and aggregations."
+description: "An ordered set of parent and child fields, such as Year to Day or Country to Postal Code, that defines drill-down and roll-up paths in a semantic layer."
 related: ["semantic-layer", "dimension-table"]
 ---
 

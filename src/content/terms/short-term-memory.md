@@ -1,6 +1,6 @@
 ---
 title: "Short-Term Memory"
-description: "Transient context stored during a single conversation thread to maintain dialogue state."
+description: "The context an AI agent keeps within one conversation, such as recent messages, so follow-ups like now filter that by region work without restating the query."
 related: ["long-term-memory", "llm-context-window", "context-layer"]
 ---
 

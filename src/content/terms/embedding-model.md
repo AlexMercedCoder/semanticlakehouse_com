@@ -1,6 +1,6 @@
 ---
 title: "Embedding Model"
-description: "A machine learning model that converts raw text into low-dimensional vector representations."
+description: "A neural network that converts text or images into dense vectors, placing similar concepts such as revenue and sales close together to support semantic search."
 related: ["vector-embeddings", "vector-database", "semantic-chunking"]
 ---
 

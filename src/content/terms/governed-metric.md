@@ -1,6 +1,6 @@
 ---
 title: "Governed Metric"
-description: "A standardized metric definition managed centrally to ensure data consistency across an organization."
+description: "A KPI whose formula and filters are defined once in a central, version-controlled place, so every tool and AI agent reports the same number for the same KPI."
 related: ["metrics-store", "semantic-layer"]
 ---
 

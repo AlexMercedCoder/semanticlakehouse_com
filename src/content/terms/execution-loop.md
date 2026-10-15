@@ -1,6 +1,6 @@
 ---
 title: "Execution Loop"
-description: "The repeating cycle of sensing, reasoning, acting, and evaluating performed by an autonomous agent."
+description: "The repeating sense, plan, act and evaluate cycle an AI agent runs until its goal is met. When a SQL query fails, the loop catches the error and regenerates it."
 related: ["react-pattern", "ai-agent", "autonomous-workflow"]
 ---
 

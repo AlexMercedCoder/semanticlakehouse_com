@@ -1,6 +1,6 @@
 ---
 title: "AI-Ready Data"
-description: "Data structured, annotated, and governed specifically to be consumable by LLMs and analytical agents."
+description: "Data that is cleaned, enriched with metadata and governed so models and agents can read it without ambiguity, reducing hallucinated queries over raw tables."
 related: ["metadata-enrichment", "semantic-layer", "context-layer"]
 ---
 

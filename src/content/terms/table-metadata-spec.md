@@ -1,6 +1,6 @@
 ---
 title: "Table Metadata Specification"
-description: "The structural layout defining how snapshots, schemas, and partition specs are recorded in a table format."
+description: "The JSON specification that records an open table's schemas, partition specs and snapshot history, giving every engine the same view of the table structure."
 related: ["manifest-file", "manifest-list", "apache-iceberg"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Physical Dataset"
-description: "A direct mapping to a raw database table, file, or object storage directory in Dremio."
+description: "In Dremio, the direct mapping to a source table, file or storage folder, with its schema detected automatically. Virtual datasets and views build on top of it."
 related: ["virtual-dataset", "data-lakehouse", "object-storage"]
 ---
 

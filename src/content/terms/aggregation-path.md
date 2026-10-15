@@ -1,6 +1,6 @@
 ---
 title: "Aggregation Path"
-description: "The defined route or logical strategy used to summarize granular details into higher-level calculations."
+description: "The route a semantic model defines for rolling granular records up to higher levels, so ratios are computed after sums and metrics stay correct when grouped."
 related: ["data-hierarchy", "semantic-layer"]
 ---
 
